@@ -23,7 +23,7 @@ export default function Navbar() {
               <a href="#" className="flex items-center space-x-2">
                 {/* VibeNear logo */}
                 <Image
-                  src="https://media.licdn.com/dms/image/v2/D560BAQG3jhhgj3Bdqg/company-logo_200_200/B56ZdVIRV2GQAU-/0/1749479921859/vibenear_logo?e=2147483647&v=beta&t=TlqEqpJhUJtRmJ7nF7N9jXIV7gwHd_47CTREI2MvRbo"
+                  src="/images/logo/vibenear_logo.jpeg"
                   alt="VibeNear Logo"
                   width={32}
                   height={32}

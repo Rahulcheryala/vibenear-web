@@ -37,11 +37,11 @@ export default function Hero() {
         }}></div>
       </div>
       
-      {/* Floating portrait cards - using local assets */}
+      {/* Floating portrait cards - using team images */}
       <div className="absolute top-35 left-0 w-48 h-48 bg-white rounded-2xl transform rotate-355 hover:rotate-0 transition-transform duration-300 shadow-sm overflow-hidden">
         <Image
-          src="/images/portfolio/portfolio-01/image-01.jpg"
-          alt="Portfolio showcase"
+          src="/images/team/team-01/image-01.jpg"
+          alt="Team member"
           width={192}
           height={192}
           className="w-full h-full object-cover rounded-2xl"
@@ -50,8 +50,8 @@ export default function Hero() {
       
       {/* <div className="absolute top-4 left-80 w-52 h-40 bg-white rounded-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300 shadow-sm overflow-hidden">
         <Image
-          src="/images/portfolio/portfolio-01/image-04.jpg"
-          alt="Creative project"
+          src="/images/team/team-01/image-02.jpg"
+          alt="Team member"
           width={208}
           height={160}
           className="w-full h-full object-cover rounded-2xl"
@@ -59,8 +59,8 @@ export default function Hero() {
       </div> */}
        <div className="absolute bottom-40 -left-14 w-85 h-48 bg-white rounded-2xl transform rotate-340 hover:rotate-0 transition-transform duration-300 shadow-sm overflow-hidden">
         <Image
-          src="/images/portfolio/portfolio-01/image-02.jpg"
-          alt="Creative work"
+          src="/images/team/team-01/image-02.jpg"
+          alt="Team member"
           width={340}
           height={192}
           className="w-full h-full object-cover rounded-2xl"
@@ -70,7 +70,7 @@ export default function Hero() {
       
       <div className="absolute -bottom-15 -left-4 w-45 h-60 bg-white rounded-2xl transform rotate-10 hover:rotate-0 transition-transform duration-300 shadow-sm overflow-hidden">
         <Image
-          src="/images/team/team-01/image-01.jpg"
+          src="/images/team/team-01/image-03.jpg"
           alt="Team member"
           width={180}
           height={144}
@@ -84,8 +84,8 @@ export default function Hero() {
       
       <div className="absolute top-60 -right-5 w-45 h-85 bg-white rounded-2xl transform -rotate-345 hover:rotate-0 transition-transform duration-300 shadow-sm overflow-hidden">
         <Image
-          src="/images/portfolio/portfolio-01/image-03.jpg"
-          alt="Project showcase"
+          src="/images/team/team-01/image-04.jpg"
+          alt="Team member"
           width={180}
           height={340}
           className="w-full h-full object-cover rounded-2xl"

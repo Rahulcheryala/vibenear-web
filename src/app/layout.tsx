@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   title: "VibeNear - Connect Businesses and Students",
   description: "VibeNear is your ultimate platform for connecting businesses and students, creating opportunities that drive innovation and growth.",
   icons: {
-    icon: "https://media.licdn.com/dms/image/v2/D560BAQG3jhhgj3Bdqg/company-logo_200_200/B56ZdVIRV2GQAU-/0/1749479921859/vibenear_logo?e=2147483647&v=beta&t=TlqEqpJhUJtRmJ7nF7N9jXIV7gwHd_47CTREI2MvRbo",
-    shortcut: "https://media.licdn.com/dms/image/v2/D560BAQG3jhhgj3Bdqg/company-logo_200_200/B56ZdVIRV2GQAU-/0/1749479921859/vibenear_logo?e=2147483647&v=beta&t=TlqEqpJhUJtRmJ7nF7N9jXIV7gwHd_47CTREI2MvRbo",
-    apple: "https://media.licdn.com/dms/image/v2/D560BAQG3jhhgj3Bdqg/company-logo_200_200/B56ZdVIRV2GQAU-/0/1749479921859/vibenear_logo?e=2147483647&v=beta&t=TlqEqpJhUJtRmJ7nF7N9jXIV7gwHd_47CTREI2MvRbo",
+    icon: "/images/logo/vibenear_logo.jpeg",
+    shortcut: "/images/logo/vibenear_logo.jpeg",
+    apple: "/images/logo/vibenear_logo.jpeg",
   },
 };
 
