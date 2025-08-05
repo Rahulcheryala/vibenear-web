@@ -36,7 +36,7 @@ export default function Contact() {
                 GET IN TOUCH WITH US
               </h2>
               <p className="mb-9 text-base leading-relaxed text-body-color dark:text-dark-6">
-                Ready to connect with VibeNear? We're here to help you bridge the gap between 
+                Ready to connect with VibeNear? We&apos;re here to help you bridge the gap between
                 businesses and students. Reach out to us for any questions or collaborations.
               </p>
 

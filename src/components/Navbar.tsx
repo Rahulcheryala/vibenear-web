@@ -22,9 +22,11 @@ export default function Navbar() {
                       <div className="flex items-center">
               <a href="#" className="flex items-center space-x-2">
                 {/* VibeNear logo */}
-                <img 
-                  src="https://media.licdn.com/dms/image/v2/D560BAQG3jhhgj3Bdqg/company-logo_200_200/B56ZdVIRV2GQAU-/0/1749479921859/vibenear_logo?e=2147483647&v=beta&t=TlqEqpJhUJtRmJ7nF7N9jXIV7gwHd_47CTREI2MvRbo" 
-                  alt="VibeNear Logo" 
+                <Image
+                  src="https://media.licdn.com/dms/image/v2/D560BAQG3jhhgj3Bdqg/company-logo_200_200/B56ZdVIRV2GQAU-/0/1749479921859/vibenear_logo?e=2147483647&v=beta&t=TlqEqpJhUJtRmJ7nF7N9jXIV7gwHd_47CTREI2MvRbo"
+                  alt="VibeNear Logo"
+                  width={32}
+                  height={32}
                   className="w-8 h-8 rounded-lg object-cover"
                 />
                 <span className="text-2xl font-bold text-gray-900">VibeNear</span>

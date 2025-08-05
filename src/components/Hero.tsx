@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 
 export default function Hero() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -38,33 +39,41 @@ export default function Hero() {
       
       {/* Floating portrait cards - matching the image */}
       <div className="absolute top-35 left-0 w-48 h-48 bg-white rounded-2xl transform rotate-355 hover:rotate-0 transition-transform duration-300 shadow-sm overflow-hidden">
-        <img 
-          src="https://media.istockphoto.com/id/2188580370/photo/tourist-sightseeing-in-sydney-under-the-harbor-bridge.jpg?b=1&s=612x612&w=0&k=20&c=hqEpgpOYp02oIoKqH703RWJpix4fuoIPFDVsVuOfEPU=" 
-          alt="Portrait" 
+        <Image
+          src="https://media.istockphoto.com/id/2188580370/photo/tourist-sightseeing-in-sydney-under-the-harbor-bridge.jpg?b=1&s=612x612&w=0&k=20&c=hqEpgpOYp02oIoKqH703RWJpix4fuoIPFDVsVuOfEPU="
+          alt="Portrait"
+          width={192}
+          height={192}
           className="w-full h-full object-cover rounded-2xl"
         />
       </div>
       
       {/* <div className="absolute top-4 left-80 w-52 h-40 bg-white rounded-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300 shadow-sm overflow-hidden">
-        <img 
-          src="https://images.pexels.com/photos/1267697/pexels-photo-1267697.jpeg" 
-          alt="Portrait" 
+        <Image
+          src="https://images.pexels.com/photos/1267697/pexels-photo-1267697.jpeg"
+          alt="Portrait"
+          width={208}
+          height={160}
           className="w-full h-full object-cover rounded-2xl"
         />
       </div> */}
        <div className="absolute bottom-40 -left-14 w-85 h-48 bg-white rounded-2xl transform rotate-340 hover:rotate-0 transition-transform duration-300 shadow-sm overflow-hidden">
-        <img 
-          src="https://images.pexels.com/photos/1267697/pexels-photo-1267697.jpeg" 
-          alt="Portrait" 
+        <Image
+          src="https://images.pexels.com/photos/1267697/pexels-photo-1267697.jpeg"
+          alt="Portrait"
+          width={340}
+          height={192}
           className="w-full h-full object-cover rounded-2xl"
         />
       </div>
       
       
       <div className="absolute -bottom-15 -left-4 w-45 h-60 bg-white rounded-2xl transform rotate-10 hover:rotate-0 transition-transform duration-300 shadow-sm overflow-hidden">
-        <img 
-          src="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg" 
-          alt="Portrait" 
+        <Image
+          src="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg"
+          alt="Portrait"
+          width={180}
+          height={144}
           className="w-full h-36 object-cover rounded-t-2xl"
         />
         <div className="p-3">
@@ -74,9 +83,11 @@ export default function Hero() {
       </div>
       
       <div className="absolute top-60 -right-5 w-45 h-85 bg-white rounded-2xl transform -rotate-345 hover:rotate-0 transition-transform duration-300 shadow-sm overflow-hidden">
-        <img 
-          src="https://images.pexels.com/photos/1267696/pexels-photo-1267696.jpeg" 
-          alt="Portrait" 
+        <Image
+          src="https://images.pexels.com/photos/1267696/pexels-photo-1267696.jpeg"
+          alt="Portrait"
+          width={180}
+          height={340}
           className="w-full h-full object-cover rounded-2xl"
         />
       </div>

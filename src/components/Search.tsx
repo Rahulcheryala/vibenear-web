@@ -18,7 +18,7 @@ export default function Search() {
           <div className="w-full px-4">
             <div className="mx-auto mb-12 max-w-[570px] text-center lg:mb-16">
               <h2 className="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-[40px]/[48px]">
-                Didn't find component you were looking for?
+                Didn&apos;t find component you were looking for?
               </h2>
               <p className="text-base text-body-color dark:text-dark-6">
                 Search from 2400+ components
