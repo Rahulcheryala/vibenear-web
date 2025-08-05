@@ -23,4 +23,86 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3758F9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3056D3;
+}
+
+/* Smooth transitions for all elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Hover effects for interactive elements */
+a, button {
+  transition: all 0.3s ease;
+}
+
+/* Focus styles for accessibility */
+button:focus, a:focus {
+  outline: 2px solid #3758F9;
+  outline-offset: 2px;
+}
+
+/* Animation for gradient text */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(-45deg, #3758F9, #3056D3, #4F46E5, #3758F9);
+  background-size: 400% 400%;
+  animation: gradient-shift 3s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Sliding text animation */
+@keyframes text-slide {
+  0%, 16.666% {
+    transform: translateY(0);
+  }
+  20%, 36.666% {
+    transform: translateY(-100%);
+  }
+  40%, 56.666% {
+    transform: translateY(-200%);
+  }
+  60%, 76.666% {
+    transform: translateY(-300%);
+  }
+  80%, 96.666% {
+    transform: translateY(-400%);
+  }
+  100% {
+    transform: translateY(-500%);
+  }
+}
+
+.animate-text-slide {
+  animation: text-slide 6s ease-in-out infinite;
 }
