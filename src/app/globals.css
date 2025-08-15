@@ -26,6 +26,12 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Ensure content is properly layered above background */
+.content-overlay {
+  position: relative;
+  z-index: 10;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
