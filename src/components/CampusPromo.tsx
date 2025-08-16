@@ -34,17 +34,17 @@ export default function CampusPromo() {
   }, [])
 
   return (
-    <section className="py-12 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-4 gap-16 items-center max-w-7xl mx-auto">
+    <section className="py-6 lg:py-12 bg-white">
+      <div className="container mx-auto px-2 lg:px-4">
+        <div className="grid lg:grid-cols-6 gap-4 lg:gap-16 items-center max-w-7xl mx-auto">
           
           {/* Left Section - Lottie Animation */}
-          <div className="lg:col-span-3 flex items-start pt-8">
-            <div ref={containerRef} className="w-full h-auto"></div>
+          <div className="lg:col-span-4 flex items-end justify-center min-h-[250px] lg:min-h-[400px] pb-2 lg:pb-8">
+            <div ref={containerRef} className="w-full h-auto max-w-8xl scale-120 pb-10 lg:pb-40"></div>
           </div>
 
           {/* Right Section - Text and CTA */}
-          <div className="lg:col-span-1 space-y-6">
+          <div className="lg:col-span-2 space-y-3 lg:space-y-6 flex flex-col justify-end min-h-[250px] lg:min-h-[400px]">
             <div>
               <h2 className="text-3xl font-bold text-blue-900 mb-3">
                 For campus clubs & <span className="italic font-serif">student communities.</span>
