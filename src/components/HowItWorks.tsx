@@ -72,14 +72,14 @@ export default function HowItWorks() {
 
   const businessFeatures = [
     {
-      animationKey: 'getRealTimeInsights' as keyof Animations,
-      title: "Real-time Insights",
-      description: "Get detailed analytics and customer feedback in real-time"
-    },
-    {
       animationKey: 'postWhatsPoppin' as keyof Animations,
       title: "Post What's Poppin",
       description: "Share your events and promotions with the community"
+    },
+    {
+      animationKey: 'getRealTimeInsights' as keyof Animations,
+      title: "Real-time Insights",
+      description: "Get detailed analytics and customer feedback in real-time"
     },
     {
       animationKey: 'oneSimpleFee' as keyof Animations,
@@ -93,8 +93,11 @@ export default function HowItWorks() {
     return (
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12 font-serif">
-            How VibeNear Works
+          <h2 className="text-5xl font-bold text-center text-[#102C66] font-jakarta">
+            How VibeNear
+            <span className="font-playfair italic pl-1">
+              Works
+            </span>
           </h2>
           <div className="text-center text-gray-600">Loading animations...</div>
         </div>
@@ -103,57 +106,66 @@ export default function HowItWorks() {
   }
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-gray-900 mb-12 font-serif">
-          How VibeNear Works
+    <section className="py-15 px-25 bg-[#FEFCFC] min-h-screen">
+      <div className="container space-y-12 mx-auto">
+        <h2 className="text-5xl font-bold text-center text-[#102C66] font-jakarta">
+          How VibeNear
+          <span className="font-playfair italic pl-1">
+            Works
+          </span>
         </h2>
 
-        {/* Tabs */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-gray-100 rounded-lg p-1 flex shadow-sm">
-            <button
-              onClick={() => setActiveTab('users')}
-              className={`px-8 py-3 rounded-md font-medium text-base transition-all duration-200 min-w-[140px] ${
-                activeTab === 'users'
-                  ? 'bg-blue-500 text-white shadow-md'
-                  : 'text-gray-700 hover:text-gray-900 hover:bg-white/60'
-              }`}
-            >
-              For Users
-            </button>
-            <button
-              onClick={() => setActiveTab('businesses')}
-              className={`px-8 py-3 rounded-md font-medium text-base transition-all duration-200 min-w-[140px] ${
-                activeTab === 'businesses'
-                  ? 'bg-blue-500 text-white shadow-md'
-                  : 'text-gray-700 hover:text-gray-900 hover:bg-white/60'
-              }`}
-            >
-              For Businesses
-            </button>
-          </div>
-        </div>
+        <div className='flex flex-col items-center gap-y-9'>
+          {/* Tabs */}
+          <div className="flex justify-center">
+            <div className="relative w-lg h-16 bg-[#F5F5F5] rounded-[20px] p-1 flex items-center justify-center gap-x-1">
+              {/* Sliding background indicator */}
+              <div
+                className="absolute top-1 bottom-1 bg-[#102C66] rounded-2xl transition-transform duration-500 cursor-pointer"
+                style={{
+                  width: '250px',
+                  left: '4px',
+                  transform: activeTab === 'users' ? 'translateX(0%)' : 'translateX(100%)'
+                }}
+              />
 
-        {/* Feature Cards */}
-        <div className="grid md:grid-cols-3 gap-6 w-full">
-          {(activeTab === 'users' ? userFeatures : businessFeatures).map((feature, index) => (
-            <div
-              key={index}
-              className="bg-white border-2 border-gray-200 rounded-xl p-8 text-center hover:shadow-lg transition-all duration-300 hover:border-blue-300 min-h-[320px] flex flex-col justify-center"
-            >
-              <div className="w-64 h-64 mx-auto mb-6">
-                <Lottie 
-                  animationData={animations[feature.animationKey]}
-                  loop={true}
-                  autoplay={true}
-                  style={{ width: '100%', height: '100%' }}
-                />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-4">{feature.title}</h3>
-              <p className="text-gray-600 leading-relaxed text-sm">{feature.description}</p>
+              <button
+                onClick={() => setActiveTab('users')}
+                className={`relative cursor-pointer flex-1 px-4 py-3 rounded-2xl font-semibold leading-6 transition-all duration-300 min-w-[140px] ${activeTab === 'users' ? 'text-white' : 'text-[#808286]'}`}
+              >
+                For Users
+              </button>
+              <button
+                onClick={() => setActiveTab('businesses')}
+                className={`relative cursor-pointer flex-1 px-4 py-3 rounded-2xl font-semibold leading-6 transition-all duration-300 min-w-[140px] ${activeTab === 'businesses' ? 'text-white' : 'text-[#808286]'}`}
+              >
+                For Businesses
+              </button>
             </div>
-          ))}
+          </div>
+
+          {/* Feature Cards */}
+          <div className="flex justify-center items-center flex-wrap gap-12 w-fit">
+            {(activeTab === 'users' ? userFeatures : businessFeatures).map((feature, index) => (
+              <div
+                key={index}
+                className="bg-white w-[410px] h-[490px] rounded-[44px] border-l-[1px] border-r-[5px] border-b-[5px] border-t-[1px] border-[#0C214C] p-6 pb-9 transition-all duration-300 min-h-[320px] flex flex-col justify-center gap-y-4"
+              >
+                <div className="w-[300px] h-[300px]">
+                  <Lottie
+                    animationData={animations[feature.animationKey]}
+                    loop={true}
+                    autoplay={true}
+                    style={{ width: '100%', height: '100%' }}
+                  />
+                </div>
+                <div className='flex flex-col gap-2'>
+                  <h3 className="text-[#0C214C] text-3xl leading-10 font-semibold ">{feature.title}</h3>
+                  <p className="text-[#808286] text-lg leading-8">{feature.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

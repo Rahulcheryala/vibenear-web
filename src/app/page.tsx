@@ -8,6 +8,7 @@ import CampusPromo from '../components/CampusPromo'
 import Contact from '../components/Contact'
 import FAQ from '../components/FAQ'
 import Footer from '../components/Footer'
+import AppShowcase from '../components/AppShowcase'
 
 export default function Home() {
   return (
@@ -17,14 +18,13 @@ export default function Home() {
         <Navbar />
         <Hero />
         <DiscoverExperiences />
-        {/* <Search /> */}
-        {/* <Blog /> */}
         <HowItWorks />
         <WhyVibeNear />
         <BusinessPromo />
         <CampusPromo />
-        <Contact />
         <FAQ />
+        <AppShowcase />
+        <Contact />
         <Footer />
       </div>
     </div>

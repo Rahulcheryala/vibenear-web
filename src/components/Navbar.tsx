@@ -17,113 +17,151 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed left-0 top-0 z-50 w-full transition-all duration-300 p-4">
-        <div className="container mx-auto">
-          <div className="relative flex items-center justify-between bg-gray-100/40 backdrop-blur-xl rounded-2xl shadow-lg border border-black/10 px-6 py-1">
+      <header className="w-full transition-all duration-300">
+        <div className="bg-white border-t-2 border-b-2 border-[#E5E7EB]">
+          <div className="py-[38px] px-[60px] flex justify-between h-[110px] items-center">
+            {/* First Child - VibeNear Logo */}
             <div className="flex items-center">
               <a href="#" className="flex items-center space-x-2">
-                {/* VibeNear logo */}
                 <Image
-                  src="/images/logo/vibenear_logo.jpeg"
+                  src="/images/logo/HeaderLogo.svg"
                   alt="VibeNear Logo"
                   width={32}
                   height={32}
                   className="w-8 h-8 rounded-lg object-cover"
                 />
-                <span className="text-2xl font-bold text-gray-900">VibeNear</span>
               </a>
             </div>
-            <div className="flex items-center justify-between">
-              <div className="relative">
-                <button
-                  onClick={() => setNavbarOpen(!navbarOpen)}
-                  className={`relative block rounded-lg px-3 py-2 lg:hidden focus:outline-none ${
-                    navbarOpen ? 'navbarTogglerActive' : ''
-                  }`}
-                  aria-label="Toggle navigation menu"
-                >
-                  <span className="relative my-[6px] block h-[3px] w-[30px] bg-black"></span>
-                  <span className="relative my-[6px] block h-[3px] w-[30px] bg-black"></span>
-                  <span className="relative my-[6px] block h-[3px] w-[30px] bg-black"></span>
-                </button>
-                <nav
-                  className={`absolute right-0 top-full mt-2 w-64 rounded-xl bg-white px-6 py-3 shadow-lg transition-all lg:static lg:block lg:w-auto lg:bg-transparent lg:shadow-none lg:mt-0 xl:ml-11 ${
-                    !navbarOpen ? 'hidden' : ''
-                  }`}
-                >
-                  <ul className="block lg:flex">
-                    <li>
-                      <a
-                        href="#"
-                        className="flex py-2 text-base font-medium text-gray-700 hover:text-gray-900 lg:ml-8 lg:inline-flex focus:outline-none"
-                      >
-                        Points
-                      </a>
-                    </li>
-                    <li className="relative">
-                      <a
-                        href="#"
-                        className="flex py-2 text-base font-medium text-gray-700 hover:text-gray-900 lg:ml-8 lg:inline-flex focus:outline-none"
-                      >
-                        About
-                        <span className="ml-1 text-xs bg-red-500 text-white px-1.5 py-0.5 rounded-full">NEW!</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="flex py-2 text-base font-medium text-gray-700 hover:text-gray-900 lg:ml-8 lg:inline-flex focus:outline-none"
-                      >
-                        Blog
-                      </a>
-                    </li>
-                  </ul>
-                  
-                  {/* Mobile-only signup and login */}
-                  <div className="lg:hidden border-t border-gray-200 mt-2 pt-2">
-                    <button
-                      onClick={() => setIsLoginModalOpen(true)}
-                      className="flex py-2 text-base font-medium text-gray-700 hover:text-gray-900 focus:outline-none"
-                    >
-                      Login
-                    </button>
-                    <button
-                      onClick={() => setIsSignupModalOpen(true)}
-                      className="inline-flex py-2 px-3 text-base font-medium text-gray-900 hover:text-gray-700 border-2 border-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-green-500 bg-clip-border hover:from-pink-600 hover:via-purple-600 hover:to-green-600 transition-all duration-300 focus:outline-none rounded-lg"
-                      style={{
-                        background: 'linear-gradient(white, white) padding-box, linear-gradient(to right, #ec4899, #a855f7, #22c55e) border-box'
-                      }}
-                    >
-                      Sign up
-                    </button>
-                  </div>
-                </nav>
-              </div>
-              <div className="hidden justify-end sm:flex">
-                <button
-                  onClick={() => setIsLoginModalOpen(true)}
-                  className="px-3 py-1 text-base font-medium text-gray-700 hover:text-gray-900 transition-colors focus:outline-none"
-                >
-                  Login
-                </button>
-                <button
-                  onClick={() => setIsSignupModalOpen(true)}
-                  className="ml-3 rounded-xl px-3 py-1 text-base font-medium text-gray-900 hover:text-gray-700 border-2 border-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-green-500 bg-clip-border hover:from-pink-600 hover:via-purple-600 hover:to-green-600 transition-all duration-300 focus:outline-none"
-                  style={{
-                    background: 'linear-gradient(white, white) padding-box, linear-gradient(to right, #ec4899, #a855f7, #22c55e) border-box'
-                  }}
-                >
-                  Sign up
-                </button>
-              </div>
+
+            {/* Second Child - Navigation Links */}
+            <nav className="hidden lg:block">
+              <ul className="flex gap-9">
+                <li>
+                  <a
+                    href="#"
+                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors"
+                  >
+                    How it Works
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors"
+                  >
+                    Why Us
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors"
+                  >
+                    For Businesses
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors"
+                  >
+                    For Students
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors"
+                  >
+                    FAQs
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors"
+                  >
+                    Our Apps
+                  </a>
+                </li>
+              </ul>
+            </nav>
+
+            {/* Third Child - CTA Button */}
+            <div className="hidden lg:block">
+              <button
+                onClick={() => setIsSignupModalOpen(true)}
+                className="h-[48px] px-6 py-3 bg-[#2970FF] text-white font-semibold rounded-lg hover:bg-[#1E5AE8] transition-colors duration-200"
+              >
+                Join Waitlist
+              </button>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setNavbarOpen(!navbarOpen)}
+              className="lg:hidden relative block rounded-lg px-3 py-2 focus:outline-none"
+              aria-label="Toggle navigation menu"
+            >
+              <span className="relative my-[6px] block h-[3px] w-[30px] bg-[#4D5055]"></span>
+              <span className="relative my-[6px] block h-[3px] w-[30px] bg-[#4D5055]"></span>
+              <span className="relative my-[6px] block h-[3px] w-[30px] bg-[#4D5055]"></span>
+            </button>
           </div>
+
+          {/* Mobile Navigation */}
+          {navbarOpen && (
+            <div className="lg:hidden bg-white border-t border-gray-200 px-[60px] py-4">
+              <nav>
+                <ul className="space-y-4">
+                  <li>
+                    <a href="#" className="text-[20px] font-semibold leading-6 text-[#4D5055] block py-2">
+                      How it Works
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-[20px] font-semibold leading-6 text-[#4D5055] block py-2">
+                      Why Us
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-[20px] font-semibold leading-6 text-[#4D5055] block py-2">
+                      For Businesses
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-[20px] font-semibold leading-6 text-[#4D5055] block py-2">
+                      For Students
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-[20px] font-semibold leading-6 text-[#4D5055] block py-2">
+                      FAQs
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-[20px] font-semibold leading-6 text-[#4D5055] block py-2">
+                      Our Apps
+                    </a>
+                  </li>
+                </ul>
+                <div className="mt-6 pt-4 border-t border-gray-200">
+                  <button
+                    onClick={() => setIsSignupModalOpen(true)}
+                    className="w-full h-[48px] px-6 py-3 bg-[#2970FF] text-white font-semibold rounded-lg hover:bg-[#1E5AE8] transition-colors duration-200"
+                  >
+                    Join Waitlist
+                  </button>
+                </div>
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 
       {/* Modals */}
-      <SignupModal 
-        isOpen={isSignupModalOpen} 
+      <SignupModal
+        isOpen={isSignupModalOpen}
         onClose={() => setIsSignupModalOpen(false)}
         onSwitchToLogin={() => {
           console.log('Switching from signup to login modal')
@@ -131,8 +169,8 @@ export default function Navbar() {
           setIsLoginModalOpen(true)
         }}
       />
-      <LoginModal 
-        isOpen={isLoginModalOpen} 
+      <LoginModal
+        isOpen={isLoginModalOpen}
         onClose={() => setIsLoginModalOpen(false)}
         onSwitchToSignup={() => {
           console.log('Switching from login to signup modal')
@@ -142,4 +180,4 @@ export default function Navbar() {
       />
     </>
   )
-} 
+}

@@ -8,7 +8,7 @@ export default function BusinessPromo() {
   const animRef = useRef<ReturnType<typeof lottie.loadAnimation> | null>(null)
 
   useEffect(() => {
-    let cleanup = () => {}
+    let cleanup = () => { }
     const loadAnimation = async () => {
       try {
         const outletAnimation = await import('../../public/animations/outlet/For Outlet.json')
@@ -35,67 +35,73 @@ export default function BusinessPromo() {
     return () => cleanup()
   }, [])
 
+  const features = [
+    {
+      icon: '📈',
+      description: 'Access to insights & performance'
+    },
+    {
+      icon: '👀',
+      description: 'Better visibility for your outlet'
+    },
+    {
+      icon: '📌',
+      description: 'Exclusive early member perks'
+    },
+    {
+      icon: '👩‍💻',
+      description: 'Get priority help when needed'
+    }
+  ]
+
   return (
-    <section className="py-6 lg:py-10 bg-white">
-      <div className="container mx-auto px-3 lg:px-6">
-        <div className="grid lg:grid-cols-6 gap-4 lg:gap-10 items-center max-w-7xl mx-auto">
-          
-          {/* Left Section */}
-          <div className="lg:col-span-2 z-10 space-y-3 lg:space-y-4 flex flex-col justify-start">
-            <div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-900 mb-2 lg:mb-3">
-                Running a local business? <span className="italic font-serif">Start free.</span>
-              </h2>
-              <p className="text-base sm:text-lg text-gray-600 mb-4 lg:mb-6">
-                Get discovered by nearby users. No commission. No catch.
+    <section className="pl-[120px] bg-[#FEFCFC] min-h-screen flex flex-wrap justify-between gap-12">
+      <div className="flex justify-between items-center">
+        {/* Left Section */}
+        <div className="min-h-[596px] min-w-[546px] flex flex-col gap-12">
+          <div className='space-y-3'>
+            <h2 className="text-5xl font-bold text-[#102C66] font-jakarta">
+              Running a local business?
+              <p>
+                Get listed for
+                <span className="italic font-playfair pl-2">free</span>
               </p>
-            </div>
-
-            {/* Features */}
-            <div className="space-y-2.5 lg:space-y-3.5">
-              <div className="flex items-center gap-3">
-                <div className="text-xl text-purple-600">🎈</div>
-                <span className="text-gray-700 text-sm sm:text-base">Post across multiple locations</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="text-xl text-red-500">📊</div>
-                <span className="text-gray-700 text-sm sm:text-base">Track insights and performance</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="text-xl text-pink-500">👁️</div>
-                <span className="text-gray-700 text-sm sm:text-base">Stay visible on nearby user feeds</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="text-xl text-green-500">📅</div>
-                <span className="text-gray-700 text-sm sm:text-base">Schedule content with ease</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="text-xl text-blue-500">💼</div>
-                <span className="text-gray-700 text-sm sm:text-base">Get priority help when needed</span>
-              </div>
-            </div>
-
-            {/* CTA */}
-            <div className="space-y-2 lg:space-y-3">
-              <div className="inline-flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
-                <span className="text-red-500">🚩</span>
-                <span className="text-sm font-medium text-red-700">Early Bird Offer</span>
-              </div>
-              <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-xl text-base transition-all duration-300 transform hover:scale-105">
-                List My Outlet for Free
-              </button>
-            </div>
+            </h2>
+            <p className="text-2xl leading-9 font-semibold text-[#1B1E25] font-jakarta">
+              No commission. No catch.
+            </p>
           </div>
 
-          {/* Right Section - Animation */}
-          <div className="lg:col-span-4 flex items-center justify-center">
-            <div
-              ref={containerRef}
-              aria-hidden
-              className="w-full h-56 sm:h-64 md:h-80 lg:h-[420px] xl:h-[500px] pointer-events-none"
-            />
+          {/* Features */}
+          <div className="space-y-6">
+            {features.map((feature, index) => (
+              <div className="flex items-center gap-3" key={index}>
+                <div className="text-4xl">{feature.icon}</div>
+                <span className="text-[#4D5055] font-medium text-2xl leading-7">{feature.description}</span>
+              </div>
+            ))}
           </div>
         </div>
+      </div>
+
+      {/* CTA */}
+      {/* <div className="space-y-2 lg:space-y-3">
+          <div className="inline-flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+            <span className="text-red-500">🚩</span>
+            <span className="text-sm font-medium text-red-700">Early Bird Offer</span>
+          </div>
+          <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-3 px-6 rounded-xl text-base transition-all duration-300 transform hover:scale-105">
+            List My Outlet for Free
+          </button>
+        </div> */}
+
+      {/* Right Section - Animation */}
+      <div className="flex-1 min-h-full flex items-center justify-center">
+        <div
+          ref={containerRef}
+          aria-hidden
+          className="w-full h-full pointer-events-none"
+        />
       </div>
     </section>
   )

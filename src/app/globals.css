@@ -8,7 +8,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
+  --font-inter: var(--font-inter);
+  --font-jakarta: var(--font-plus-jakarta-sans);
+  --font-playfair: var(--font-playfair-display);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,10 +20,15 @@
   }
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-plus-jakarta-sans), var(--font-inter), Arial,
+    Helvetica, sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -37,39 +44,38 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #fefcfc;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3758F9;
-  border-radius: 4px;
+  background: #3758f9;
+  border-radius: 4px 0 0 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3056D3;
+  background: #3056d3;
 }
 
 /* Smooth transitions for all elements */
 * {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
 }
 
 /* Hover effects for interactive elements */
-a, button {
+a {
   transition: all 0.3s ease;
 }
 
 /* Focus styles for accessibility */
-button:focus, a:focus {
-  outline: 2px solid #3758F9;
+a:focus {
+  outline: 2px solid #3758f9;
   outline-offset: 2px;
 }
 
 /* Animation for gradient text */
 @keyframes gradient-shift {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
   }
   50% {
@@ -78,7 +84,7 @@ button:focus, a:focus {
 }
 
 .gradient-text {
-  background: linear-gradient(-45deg, #3758F9, #3056D3, #4F46E5, #3758F9);
+  background: linear-gradient(-45deg, #3758f9, #3056d3, #4f46e5, #3758f9);
   background-size: 400% 400%;
   animation: gradient-shift 3s ease infinite;
   -webkit-background-clip: text;
@@ -88,19 +94,24 @@ button:focus, a:focus {
 
 /* Sliding text animation */
 @keyframes text-slide {
-  0%, 16.666% {
+  0%,
+  16.666% {
     transform: translateY(0);
   }
-  20%, 36.666% {
+  20%,
+  36.666% {
     transform: translateY(-100%);
   }
-  40%, 56.666% {
+  40%,
+  56.666% {
     transform: translateY(-200%);
   }
-  60%, 76.666% {
+  60%,
+  76.666% {
     transform: translateY(-300%);
   }
-  80%, 96.666% {
+  80%,
+  96.666% {
     transform: translateY(-400%);
   }
   100% {
