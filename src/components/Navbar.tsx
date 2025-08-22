@@ -40,66 +40,66 @@ export default function Navbar() {
           <div className="mobile:py-[38px] mobile:px-[60px] px-5 py-[38px] flex justify-between mobile:h-[110px] h-[80px] items-center">
             {/* First Child - VibeNear Logo */}
             <div className="flex flex-shrink-0 items-center mobile:h-[42px] mobile:w-[166px] h-9 w-[142px] relative">
-              <a href="/">
+              <Link href="/">
                 <Image
                   src="/images/logo/HeaderLogo.svg"
                   alt="VibeNear Logo"
                   fill
                   className="w-full h-full rounded-lg object-cover"
                 />
-              </a>
+              </Link>
             </div>
 
             {/* Second Child - Navigation Links (Desktop) */}
             <nav className="hidden xl:block">
               <ul className="flex gap-9">
                 <li>
-                  <a
+                  <Link
                     href="#how-it-works"
                     className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
                   >
                     How it Works
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="#why-vibe-near"
                     className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
                   >
                     Why Us
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="#for-businesses"
                     className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
                   >
                     For Businesses
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="#for-students"
                     className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
                   >
                     For Students
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="#faqs"
                     className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
                   >
                     FAQs
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="#our-apps"
                     className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
                   >
                     Our Apps
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -141,58 +141,58 @@ export default function Navbar() {
                     <nav className="py-2">
                       <ul className="space-y-1">
                         <li>
-                          <a
+                          <Link
                             href="#how-it-works"
                             className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
                             onClick={() => setNavbarOpen(false)}
                           >
                             How it Works
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a
+                          <Link
                             href="#why-vibe-near"
                             className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
                             onClick={() => setNavbarOpen(false)}
                           >
                             Why Us
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a
+                          <Link
                             href="#for-businesses"
                             className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
                             onClick={() => setNavbarOpen(false)}
                           >
                             For Businesses
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a
+                          <Link
                             href="#for-students"
                             className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
                             onClick={() => setNavbarOpen(false)}
                           >
                             For Students
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a
+                          <Link
                             href="#faqs"
                             className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
                             onClick={() => setNavbarOpen(false)}
                           >
                             FAQs
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a
+                          <Link
                             href="#our-apps"
                             className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
                             onClick={() => setNavbarOpen(false)}
                           >
                             Our Apps
-                          </a>
+                          </Link>
                         </li>
 
                         {/* Mobile CTA in dropdown */}

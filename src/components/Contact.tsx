@@ -32,7 +32,7 @@ export default function Contact() {
             Be <span className='font-playfair font-extrabold italic pl-0.5'>first</span> on VibeNear
           </h2>
           <p className="tablet:text-[28px] mobile:text-2xl text-xl tablet:leading-8 font-semibold text-[#1B1E25]">
-            We'll notify you when VibeNear goes live in your area—with early-bird perks
+            We&apos;ll notify you when VibeNear goes live in your area—with early-bird perks
           </p>
         </div>
 

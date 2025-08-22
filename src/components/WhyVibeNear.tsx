@@ -26,7 +26,7 @@ export default function WhyVibeNear() {
               <div className="mobile:w-[740px] mobile:h-[540px] w-[353px] h-fit bg-[#FF5E5B] mobile:rounded-[36px] rounded-3xl border-r-[5px] border-b-[5px] border-[#4C1C1B] mobile:p-5 p-4 flex mobile:flex-row flex-col mobile:gap-4 gap-3">
                 {/* Left Section - Fixed Width */}
                 <div className="mobile:w-[286px] mobile:h-full w-full h-fit bg-white rounded-xl p-4 flex flex-col mobile:gap-3 gap-y-2 relative overflow-hidden">
-                  <h3 className="tablet:text-[32px] mobile:text-[28px] text-xl font-extrabold text-[#1B1E25] mobile:leading-10 leading-6">Local Picks You'll Love</h3>
+                  <h3 className="tablet:text-[32px] mobile:text-[28px] text-xl font-extrabold text-[#1B1E25] mobile:leading-10 leading-6">Local Picks You&apos;ll Love</h3>
                   <p className="tablet:text-lg mobile:text-base text-sm font-semibold leading-7 text-[#4D5055] max-w-[80%]">85% of users say they found something new within 5 mins</p>
 
                   <Image src={MagnifyingGlass} alt="MagnifyingGlass" className="mobile:w-[256px] w-[60px] aspect-square absolute mobile:-bottom-4 mobile:right-0 bottom-2.5 right-2.5" />

@@ -23,7 +23,7 @@ export default function AppShowcase() {
               User App
             </h3>
             <p className="tablet:text-xl mobile:text-xl text-lg tablet:leading-7 leading-6 font-semibold text-[#4D5055]">
-              Find hidden gems, local deals, and events around you. No noise, just what's nearby and vibing now.
+              Find hidden gems, local deals, and events around you. No noise, just what&apos;s nearby and vibing now.
             </p>
           </div>
         </div>
