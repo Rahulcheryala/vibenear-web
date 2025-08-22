@@ -57,28 +57,28 @@ export default function FAQ() {
   }, [])
 
   return (
-    <section className="bg-white p-[100px] grid place-content-center gap-y-12">
+    <section id="faqs" className="bg-white min-h-screen tablet:p-[100px] sm:p-[60px] px-5 py-9 grid place-content-center mobile:gap-y-12 gap-y-9">
       {/* Main heading */}
       <div className="text-center">
-        <h2 className="text-5xl font-bold leading-tight text-[#0C214C]">
+        <h2 className="tablet:text-5xl text-4xl text-[32px] font-bold leading-tight text-[#0C214C]">
           Frequently Asked Questions
         </h2>
       </div>
 
       {/* Accordion container */}
-      <div className="w-[1000px] bg-white px-6 py-12">
-        <div className="flex flex-col gap-6">
+      <div className="tablet:w-full tablet:max-w-[1000px] mobile:w-full bg-white px-6 pb-12 mobile:px-6 mobile:py-0 tablet:py-12">
+        <div className="flex flex-col gap-y-3 mobile:gap-y-6">
           {faqData.map((faq) => (
             <div
               key={faq.id}
-              className="rounded-2xl border border-gray-100 bg-white shadow-sm overflow-hidden transition-all duration-300 ease-in-out"
+              className="rounded-2xl bg-white shadow-sm overflow-hidden transition-all duration-300 ease-in-out"
             >
               {/* Header button */}
               <button
-                className="flex w-full items-center justify-between text-left p-6"
+                className="flex w-full items-center justify-between text-left tablet:p-6 p-4"
                 onClick={() => toggleFaq(faq.id)}
               >
-                <h4 className="text-lg font-semibold text-[#0C214C] pr-4">
+                <h4 className="tablet:text-lg text-base mobile:leading-7 leading-[22px]  font-semibold text-[#0C214C] pr-4">
                   {faq.question}
                 </h4>
                 <svg
@@ -109,10 +109,10 @@ export default function FAQ() {
                   ref={(el) => {
                     contentRefs.current[faq.id] = el
                   }}
-                  className="px-6 pb-6"
+                  className="tablet:px-6 px-4 tablet:pb-6 pb-4"
                 >
-                  <div className="pt-4 border-t border-gray-100">
-                    <p className="text-base leading-relaxed text-gray-700">
+                  <div className="tablet:pt-4 pt-3 border-t border-gray-100">
+                    <p className="tablet:text-base text-sm leading-relaxed text-gray-700">
                       {faq.answer}
                     </p>
                   </div>

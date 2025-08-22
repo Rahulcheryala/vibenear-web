@@ -29,7 +29,7 @@ export default function DiscoverExperiences() {
   ]
 
   return (
-    <section className="py-9 px-12 bg-[#FDFAEF] overflow-hidden h-[213px] grid place-content-center">
+    <section className="py-5 mobile:py-9 px-12 bg-[#FDFAEF] overflow-hidden mobile:h-[213px] h-[161px] grid place-content-center">
       <div className="flex flex-col gap-y-6">
         {/* Top Row - Moving Left to Right */}
         <div className="flex max-w-7xl mx-auto h-6">
@@ -66,7 +66,7 @@ export default function DiscoverExperiences() {
 
         {/* Title Between Rows */}
         <div className="flex items-center justify-center">
-          <h2 className="text-4xl font-extrabold text-[#493E1E] leading-[45px]">
+          <h2 className="tablet:text-4xl mobile:text-2xl text-[20px] font-extrabold text-[#493E1E] leading-[45px]">
             DISCOVER EXPERIENCES
           </h2>
         </div>

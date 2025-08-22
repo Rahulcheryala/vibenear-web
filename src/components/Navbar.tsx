@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import SignupModal from './SignupModal'
 import LoginModal from './LoginModal'
+import Link from 'next/link'
 
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false)
@@ -15,71 +16,87 @@ export default function Navbar() {
     console.log('Modal states:', { isSignupModalOpen, isLoginModalOpen })
   }, [isSignupModalOpen, isLoginModalOpen])
 
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = () => {
+      if (navbarOpen) {
+        setNavbarOpen(false)
+      }
+    }
+
+    if (navbarOpen) {
+      document.addEventListener('click', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside)
+    }
+  }, [navbarOpen])
+
   return (
     <>
       <header className="w-full transition-all duration-300">
-        <div className="bg-white border-t-2 border-b-2 border-[#E5E7EB]">
-          <div className="py-[38px] px-[60px] flex justify-between h-[110px] items-center">
+        <div className="bg-[#FAFAFA]">
+          <div className="mobile:py-[38px] mobile:px-[60px] px-5 py-[38px] flex justify-between mobile:h-[110px] h-[80px] items-center">
             {/* First Child - VibeNear Logo */}
-            <div className="flex items-center">
-              <a href="#" className="flex items-center space-x-2">
+            <div className="flex flex-shrink-0 items-center mobile:h-[42px] mobile:w-[166px] h-9 w-[142px] relative">
+              <a href="/">
                 <Image
                   src="/images/logo/HeaderLogo.svg"
                   alt="VibeNear Logo"
-                  width={32}
-                  height={32}
-                  className="w-8 h-8 rounded-lg object-cover"
+                  fill
+                  className="w-full h-full rounded-lg object-cover"
                 />
               </a>
             </div>
 
-            {/* Second Child - Navigation Links */}
-            <nav className="hidden lg:block">
+            {/* Second Child - Navigation Links (Desktop) */}
+            <nav className="hidden xl:block">
               <ul className="flex gap-9">
                 <li>
                   <a
-                    href="#"
-                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors"
+                    href="#how-it-works"
+                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
                   >
                     How it Works
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
-                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors"
+                    href="#why-vibe-near"
+                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
                   >
                     Why Us
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
-                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors"
+                    href="#for-businesses"
+                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
                   >
                     For Businesses
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
-                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors"
+                    href="#for-students"
+                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
                   >
                     For Students
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
-                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors"
+                    href="#faqs"
+                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
                   >
                     FAQs
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
-                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors"
+                    href="#our-apps"
+                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
                   >
                     Our Apps
                   </a>
@@ -87,75 +104,116 @@ export default function Navbar() {
               </ul>
             </nav>
 
-            {/* Third Child - CTA Button */}
-            <div className="hidden lg:block">
-              <button
-                onClick={() => setIsSignupModalOpen(true)}
-                className="h-[48px] px-6 py-3 bg-[#2970FF] text-white font-semibold rounded-lg hover:bg-[#1E5AE8] transition-colors duration-200"
-              >
-                Join Waitlist
-              </button>
-            </div>
+            {/* Third Child - CTA Button and Mobile Menu */}
+            <div className="flex items-center gap-4">
+              {/* CTA Button (Desktop) */}
+              <div className="hidden sm:block">
+                <Link
+                  href="#join-waitlist"
+                  // onClick={() => setIsSignupModalOpen(true)}
+                  className="h-[48px] px-6 py-3 bg-[#2970FF] text-xl leading-6 text-white font-semibold rounded-full hover:bg-[#1E5AE8] transition-colors duration-200 whitespace-nowrap"
+                >
+                  Join Waitlist
+                </Link>
+              </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setNavbarOpen(!navbarOpen)}
-              className="lg:hidden relative block rounded-lg px-3 py-2 focus:outline-none"
-              aria-label="Toggle navigation menu"
-            >
-              <span className="relative my-[6px] block h-[3px] w-[30px] bg-[#4D5055]"></span>
-              <span className="relative my-[6px] block h-[3px] w-[30px] bg-[#4D5055]"></span>
-              <span className="relative my-[6px] block h-[3px] w-[30px] bg-[#4D5055]"></span>
-            </button>
+              {/* Mobile Menu Button */}
+              <div className="xl:hidden relative">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setNavbarOpen(!navbarOpen)
+                  }}
+                  className="relative flex items-center justify-center w-7 h-7 hover:bg-gray-100 transition-colors focus:outline-hidden"
+                  aria-label="Toggle navigation menu"
+                >
+                  <Image
+                    src="/images/icons/Menu.svg"
+                    alt="Menu"
+                    fill
+                    className="w-full h-full rounded-lg object-cover"
+                  />
+                </button>
+
+                {/* Dropdown Menu */}
+                {navbarOpen && (
+                  <div className="absolute right-0 top-full mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                    <nav className="py-2">
+                      <ul className="space-y-1">
+                        <li>
+                          <a
+                            href="#how-it-works"
+                            className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
+                            onClick={() => setNavbarOpen(false)}
+                          >
+                            How it Works
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#why-vibe-near"
+                            className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
+                            onClick={() => setNavbarOpen(false)}
+                          >
+                            Why Us
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#for-businesses"
+                            className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
+                            onClick={() => setNavbarOpen(false)}
+                          >
+                            For Businesses
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#for-students"
+                            className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
+                            onClick={() => setNavbarOpen(false)}
+                          >
+                            For Students
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#faqs"
+                            className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
+                            onClick={() => setNavbarOpen(false)}
+                          >
+                            FAQs
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#our-apps"
+                            className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
+                            onClick={() => setNavbarOpen(false)}
+                          >
+                            Our Apps
+                          </a>
+                        </li>
+
+                        {/* Mobile CTA in dropdown */}
+                        <li className="sm:hidden border-t border-gray-200 mt-2 pt-2 px-6">
+                          <button
+                            onClick={() => {
+                              setNavbarOpen(false)
+                              setIsSignupModalOpen(true)
+                            }}
+                            className="w-full h-[48px] bg-[#2970FF] text-white font-semibold rounded-lg hover:bg-[#1E5AE8] transition-colors duration-200"
+                          >
+                            Join Waitlist
+                          </button>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
-
-          {/* Mobile Navigation */}
-          {navbarOpen && (
-            <div className="lg:hidden bg-white border-t border-gray-200 px-[60px] py-4">
-              <nav>
-                <ul className="space-y-4">
-                  <li>
-                    <a href="#" className="text-[20px] font-semibold leading-6 text-[#4D5055] block py-2">
-                      How it Works
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-[20px] font-semibold leading-6 text-[#4D5055] block py-2">
-                      Why Us
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-[20px] font-semibold leading-6 text-[#4D5055] block py-2">
-                      For Businesses
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-[20px] font-semibold leading-6 text-[#4D5055] block py-2">
-                      For Students
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-[20px] font-semibold leading-6 text-[#4D5055] block py-2">
-                      FAQs
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-[20px] font-semibold leading-6 text-[#4D5055] block py-2">
-                      Our Apps
-                    </a>
-                  </li>
-                </ul>
-                <div className="mt-6 pt-4 border-t border-gray-200">
-                  <button
-                    onClick={() => setIsSignupModalOpen(true)}
-                    className="w-full h-[48px] px-6 py-3 bg-[#2970FF] text-white font-semibold rounded-lg hover:bg-[#1E5AE8] transition-colors duration-200"
-                  >
-                    Join Waitlist
-                  </button>
-                </div>
-              </nav>
-            </div>
-          )}
         </div>
       </header>
 

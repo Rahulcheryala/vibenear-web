@@ -1,116 +1,119 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Lottie from 'lottie-react'
-
-interface Animations {
-  discoverByVibe: Record<string, unknown>
-  bookmarkAndUpvote: Record<string, unknown>
-  joinLocalCommunities: Record<string, unknown>
-  getRealTimeInsights: Record<string, unknown>
-  postWhatsPoppin: Record<string, unknown>
-  oneSimpleFee: Record<string, unknown>
-}
+import discoverByVibe from '../../public/animations/Discover_by_Vibe.json'
+import bookmarkAndUpvote from '../../public/animations/Bookmark_and_Upvote.json'
+import joinLocalCommunities from '../../public/animations/Join_local_communities.json'
+import getRealTimeInsights from '../../public/animations/Get_Real_Time_Insights.json'
+import postWhatsPoppin from '../../public/animations/Post_whats_poppin.json'
+import oneSimpleFee from '../../public/animations/One_Simple_Fee.json'
 
 export default function HowItWorks() {
   const [activeTab, setActiveTab] = useState('users')
-  const [animations, setAnimations] = useState<Animations | null>(null)
-
-  useEffect(() => {
-    // Dynamic imports to avoid Turbopack HMR issues
-    const loadAnimations = async () => {
-      try {
-        const [
-          discoverByVibe,
-          bookmarkAndUpvote,
-          joinLocalCommunities,
-          getRealTimeInsights,
-          postWhatsPoppin,
-          oneSimpleFee
-        ] = await Promise.all([
-          import('../../public/animations/Discover_by_Vibe.json'),
-          import('../../public/animations/Bookmark_and_Upvote.json'),
-          import('../../public/animations/Join_local_communities.json'),
-          import('../../public/animations/Get_Real_Time_Insights.json'),
-          import('../../public/animations/Post_whats_poppin.json'),
-          import('../../public/animations/One_Simple_Fee.json')
-        ])
-
-        setAnimations({
-          discoverByVibe: discoverByVibe.default,
-          bookmarkAndUpvote: bookmarkAndUpvote.default,
-          joinLocalCommunities: joinLocalCommunities.default,
-          getRealTimeInsights: getRealTimeInsights.default,
-          postWhatsPoppin: postWhatsPoppin.default,
-          oneSimpleFee: oneSimpleFee.default
-        })
-      } catch (error) {
-        console.error('Error loading animations:', error)
-      }
-    }
-
-    loadAnimations()
-  }, [])
 
   const userFeatures = [
     {
-      animationKey: 'discoverByVibe' as keyof Animations,
+      animation: discoverByVibe,
       title: "Discover by Vibe",
-      description: "Find cafes, gigs, near you based on your vibe, time & mood"
+      description: "Find cafes, gigs, near you based on your vibe, time & mood",
+      sizes: {
+        mobile: {
+          animationWidth: "162px",
+          animationHeight: "175px"
+        },
+        tablet: {
+          animationWidth: "278px",
+          animationHeight: "300px"
+        }
+      }
     },
     {
-      animationKey: 'bookmarkAndUpvote' as keyof Animations,
+      animation: bookmarkAndUpvote,
       title: "Bookmark & Upvote",
-      description: "Bookmark places you love & upvote hidden gems"
+      description: "Bookmark places you love & upvote hidden gems",
+      sizes: {
+        mobile: {
+          animationWidth: "175px",
+          animationHeight: "175px"
+        },
+        tablet: {
+          animationWidth: "300px",
+          animationHeight: "300px"
+        }
+      }
     },
     {
-      animationKey: 'joinLocalCommunities' as keyof Animations,
+      animation: joinLocalCommunities,
       title: "Join Local Communities",
-      description: "Connect with groups near you and never miss what's happening"
+      description: "Connect with groups near you and never miss what's happening",
+      sizes: {
+        mobile: {
+          animationWidth: "175px",
+          animationHeight: "175px"
+        },
+        tablet: {
+          animationWidth: "302px",
+          animationHeight: "300px"
+        }
+      }
     }
   ]
 
   const businessFeatures = [
     {
-      animationKey: 'postWhatsPoppin' as keyof Animations,
+      animation: postWhatsPoppin,
       title: "Post What's Poppin",
-      description: "Share your events and promotions with the community"
+      description: "Share your events and promotions with the community",
+      sizes: {
+        mobile: {
+          animationWidth: "175px",
+          animationHeight: "175px"
+        },
+        tablet: {
+          animationWidth: "300px",
+          animationHeight: "300px"
+        }
+      }
     },
     {
-      animationKey: 'getRealTimeInsights' as keyof Animations,
+      animation: getRealTimeInsights,
       title: "Real-time Insights",
-      description: "Get detailed analytics and customer feedback in real-time"
+      description: "Get detailed analytics and customer feedback in real-time",
+      sizes: {
+        mobile: {
+          animationWidth: "175px",
+          animationHeight: "175px"
+        },
+        tablet: {
+          animationWidth: "300px",
+          animationHeight: "300px"
+        }
+      }
     },
     {
-      animationKey: 'oneSimpleFee' as keyof Animations,
+      animation: oneSimpleFee,
       title: "One Simple Fee",
-      description: "Manage your listings, promotions, and customer interactions"
+      description: "Manage your listings, promotions, and customer interactions",
+      sizes: {
+        mobile: {
+          animationWidth: "175px",
+          animationHeight: "175px"
+        },
+        tablet: {
+          animationWidth: "300px",
+          animationHeight: "300px"
+        }
+      }
     }
   ]
 
-  // Don't render until animations are loaded
-  if (!animations) {
-    return (
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-5xl font-bold text-center text-[#102C66] font-jakarta">
-            How VibeNear
-            <span className="font-playfair italic pl-1">
-              Works
-            </span>
-          </h2>
-          <div className="text-center text-gray-600">Loading animations...</div>
-        </div>
-      </section>
-    )
-  }
-
   return (
-    <section className="py-15 px-25 bg-[#FEFCFC] min-h-screen">
-      <div className="container space-y-12 mx-auto">
-        <h2 className="text-5xl font-bold text-center text-[#102C66] font-jakarta">
+    <section id="how-it-works" className="mobile:py-15 mobile:px-25 mobile:max-sm:px-7 mobile:max-sm:py-10 px-5 py-9 bg-[#FEFCFC] sm:min-h-screen h-fit">
+      <div className="container sm:space-y-12 mobile:space-y-8 space-y-5 mx-auto">
+        <h2 className="tablet:text-5xl mobile:text-4xl text-[32px] tablet:leading-16 mobile:leading-12 leading-11 tablet:font-bold font-semibold text-center text-[#102C66] font-jakarta">
           How VibeNear
-          <span className="font-playfair italic pl-1">
+          <span className="font-playfair font-extrabold italic pl-1">
             Works
           </span>
         </h2>
@@ -118,53 +121,60 @@ export default function HowItWorks() {
         <div className='flex flex-col items-center gap-y-9'>
           {/* Tabs */}
           <div className="flex justify-center">
-            <div className="relative w-lg h-16 bg-[#F5F5F5] rounded-[20px] p-1 flex items-center justify-center gap-x-1">
+            <div className="relative tablet:w-lg tablet:h-16 sm:w-[452px] sm:h-14 w-[353px] h-[50px] bg-[#F5F5F5] rounded-[20px] p-1 flex items-center justify-center gap-x-1">
               {/* Sliding background indicator */}
               <div
-                className="absolute top-1 bottom-1 bg-[#102C66] rounded-2xl transition-transform duration-500 cursor-pointer"
-                style={{
-                  width: '250px',
-                  left: '4px',
-                  transform: activeTab === 'users' ? 'translateX(0%)' : 'translateX(100%)'
-                }}
+                className={`absolute w-[calc(50%-4px)] top-1 bottom-1 left-1 bg-[#102C66] rounded-2xl transition-transform duration-500 cursor-pointer ${activeTab === 'users' ? 'translate-x-0' : 'translate-x-full'}`}
               />
 
               <button
                 onClick={() => setActiveTab('users')}
-                className={`relative cursor-pointer flex-1 px-4 py-3 rounded-2xl font-semibold leading-6 transition-all duration-300 min-w-[140px] ${activeTab === 'users' ? 'text-white' : 'text-[#808286]'}`}
+                className={`relative cursor-pointer flex-1 px-4 py-3 rounded-2xl font-semibold tablet:text-xl mobile:text-lg text-base mobile:leading-6 leading-5 transition-all duration-300 min-w-[140px] ${activeTab === 'users' ? 'text-white' : 'text-[#808286]'}`}
               >
                 For Users
               </button>
               <button
                 onClick={() => setActiveTab('businesses')}
-                className={`relative cursor-pointer flex-1 px-4 py-3 rounded-2xl font-semibold leading-6 transition-all duration-300 min-w-[140px] ${activeTab === 'businesses' ? 'text-white' : 'text-[#808286]'}`}
+                className={`relative cursor-pointer flex-1 px-4 py-3 rounded-2xl font-semibold tablet:text-xl mobile:text-lg text-base mobile:leading-6 leading-5 transition-all duration-300 min-w-[140px] ${activeTab === 'businesses' ? 'text-white' : 'text-[#808286]'}`}
               >
                 For Businesses
               </button>
             </div>
           </div>
 
-          {/* Feature Cards */}
-          <div className="flex justify-center items-center flex-wrap gap-12 w-fit">
-            {(activeTab === 'users' ? userFeatures : businessFeatures).map((feature, index) => (
-              <div
-                key={index}
-                className="bg-white w-[410px] h-[490px] rounded-[44px] border-l-[1px] border-r-[5px] border-b-[5px] border-t-[1px] border-[#0C214C] p-6 pb-9 transition-all duration-300 min-h-[320px] flex flex-col justify-center gap-y-4"
-              >
-                <div className="w-[300px] h-[300px]">
-                  <Lottie
-                    animationData={animations[feature.animationKey]}
-                    loop={true}
-                    autoplay={true}
-                    style={{ width: '100%', height: '100%' }}
-                  />
+          {/* Feature Cards Container */}
+          <div className="w-full overflow-x-auto scrollbar-hide">
+            <div className="mx-auto flex justify-start items-center tablet:gap-12 mobile:gap-7 gap-5 w-max px-4 tablet:px-0">
+              {(activeTab === 'users' ? userFeatures : businessFeatures).map((feature, index) => (
+                <div
+                  key={index}
+                  className="bg-white tablet:w-[410px] tablet:h-[490px] w-[240px] h-[305px] tablet:rounded-[44px] rounded-[26px] border-[#0C214C] border-l-[1px] border-t-[1px] tablet:border-r-[5px] tablet:border-b-[5px] border-r-[3px] border-b-[3px] tablet:p-6 tablet:pb-9 p-[14px] pb-[21px] transition-all duration-300 min-h-[320px] flex flex-col justify-center tablet:gap-y-4 gap-y-[9px] flex-shrink-0"
+                >
+                  <div
+                    // className="bg-red-200"
+                    style={{
+                      '--mobile-width': feature.sizes.mobile.animationWidth,
+                      '--mobile-height': feature.sizes.mobile.animationHeight,
+                      '--tablet-width': feature.sizes.tablet.animationWidth,
+                      '--tablet-height': feature.sizes.tablet.animationHeight,
+                      maxWidth: 'var(--mobile-width)',
+                      maxHeight: 'var(--mobile-height)'
+                    } as React.CSSProperties & { [key: string]: string }}
+                  >
+                    <Lottie
+                      animationData={feature.animation}
+                      loop={true}
+                      autoplay={true}
+                      style={{ width: '100%', height: '100%' }}
+                    />
+                  </div>
+                  <div className='flex flex-col tablet:gap-2 gap-1'>
+                    <h3 className="text-[#0C214C] tablet:text-3xl mobile:text-lg tablet:leading-10 mobile:leading-[22px] font-semibold ">{feature.title}</h3>
+                    <p className="text-[#808286] tablet:text-lg mobile:text-sm tablet:leading-8 mobile:leading-[20px] font-normal">{feature.description}</p>
+                  </div>
                 </div>
-                <div className='flex flex-col gap-2'>
-                  <h3 className="text-[#0C214C] text-3xl leading-10 font-semibold ">{feature.title}</h3>
-                  <p className="text-[#808286] text-lg leading-8">{feature.description}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

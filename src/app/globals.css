@@ -13,6 +13,11 @@
   --font-playfair: var(--font-playfair-display);
 }
 
+@theme {
+  --breakpoint-mobile: 394px;
+  --breakpoint-tablet: 834px;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -22,6 +27,8 @@
 
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -30,6 +37,7 @@ body {
   font-family: var(--font-plus-jakarta-sans), var(--font-inter), Arial,
     Helvetica, sans-serif;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Ensure content is properly layered above background */
@@ -48,7 +56,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3758f9;
+  background: #3756f9;
   border-radius: 4px 0 0 4px;
 }
 
@@ -61,15 +69,46 @@ body {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Hover effects for interactive elements */
-a {
-  transition: all 0.3s ease;
+/* Enhanced smooth scrolling for all scrollable elements */
+* {
+  scroll-behavior: smooth;
 }
 
-/* Focus styles for accessibility */
-a:focus {
-  outline: 2px solid #3758f9;
-  outline-offset: 2px;
+button {
+  cursor: pointer;
+  outline: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    outline: none;
+  }
+}
+
+/* Smooth scrolling for specific elements */
+.smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar utility class */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* Responsive animation sizing */
+@media (min-width: 834px) {
+  [style*="--tablet-width"] {
+    max-width: var(--tablet-width) !important;
+    max-height: var(--tablet-height) !important;
+  }
 }
 
 /* Animation for gradient text */
@@ -121,4 +160,36 @@ a:focus {
 
 .animate-text-slide {
   animation: text-slide 6s ease-in-out infinite;
+}
+
+.campus-lottie-wrapper {
+  transform-origin: center center;
+}
+@media (max-width: 833.98px) {
+  .campus-lottie-wrapper {
+    transform: scale(4);
+  }
+}
+@media (min-width: 834px) {
+  .campus-lottie-wrapper {
+    transform: scale(1);
+  }
+}
+
+.app-shot {
+  position: relative;
+  width: 360px;
+  height: 494px;
+}
+@media (max-width: 1279.98px) {
+  .app-shot {
+    width: 300px;
+    height: 410px;
+  }
+}
+@media (max-width: 833.98px) {
+  .app-shot {
+    width: 245px;
+    height: 335px;
+  }
 }

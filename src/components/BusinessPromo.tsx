@@ -1,40 +1,9 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import lottie from 'lottie-web'
+import Lottie from 'lottie-react'
+import outletAnimation from '../../public/animations/outlet/For Outlet.json'
 
 export default function BusinessPromo() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const animRef = useRef<ReturnType<typeof lottie.loadAnimation> | null>(null)
-
-  useEffect(() => {
-    let cleanup = () => { }
-    const loadAnimation = async () => {
-      try {
-        const outletAnimation = await import('../../public/animations/outlet/For Outlet.json')
-        const animationData = outletAnimation.default
-        if (containerRef.current) {
-          animRef.current = lottie.loadAnimation({
-            container: containerRef.current,
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            animationData,
-            rendererSettings: { preserveAspectRatio: 'xMidYMid meet' }
-          })
-          cleanup = () => {
-            animRef.current?.destroy()
-            animRef.current = null
-          }
-        }
-      } catch (err) {
-        console.error('Error loading outlet animation:', err)
-      }
-    }
-    loadAnimation()
-    return () => cleanup()
-  }, [])
-
   const features = [
     {
       icon: '📈',
@@ -55,29 +24,29 @@ export default function BusinessPromo() {
   ]
 
   return (
-    <section className="pl-[120px] bg-[#FEFCFC] min-h-screen flex flex-wrap justify-between gap-12">
-      <div className="flex justify-between items-center">
+    <section id="for-businesses" className="bg-[#FEFCFC] min-h-screen flex xl:flex-row flex-col justify-between gap-x-12 mobile:gap-y-9 gap-y-6 tablet:pl-[120px] mobile:p-[60px] py-9 px-5">
+      <div className="flex justify-between xl:items-center items-start">
         {/* Left Section */}
-        <div className="min-h-[596px] min-w-[546px] flex flex-col gap-12">
-          <div className='space-y-3'>
-            <h2 className="text-5xl font-bold text-[#102C66] font-jakarta">
+        <div className="xl:min-h-[596px] xl:min-w-[546px] h-fit w-fit flex flex-col tablet:gap-y-12 mobile:gap-y-6 gap-y-5">
+          <div className='mobile:space-y-3 sm:m-0 mx-auto'>
+            <h2 className="tablet:text-5xl text-4xl text-[32px] font-bold text-[#102C66] font-jakarta text-center sm:text-left">
               Running a local business?
-              <p>
+              <p className='text-center sm:text-left'>
                 Get listed for
-                <span className="italic font-playfair pl-2">free</span>
+                <span className="italic font-extrabold font-playfair pl-2">free</span>
               </p>
             </h2>
-            <p className="text-2xl leading-9 font-semibold text-[#1B1E25] font-jakarta">
+            <p className="mobile:text-2xl text-xl leading-9 font-semibold text-[#1B1E25] font-jakarta text-center sm:text-left">
               No commission. No catch.
             </p>
           </div>
 
           {/* Features */}
-          <div className="space-y-6">
+          <div className="mobile:space-y-6 space-y-3 mobile:p-0 p-4">
             {features.map((feature, index) => (
               <div className="flex items-center gap-3" key={index}>
-                <div className="text-4xl">{feature.icon}</div>
-                <span className="text-[#4D5055] font-medium text-2xl leading-7">{feature.description}</span>
+                <div className="tablet:text-4xl mobile:text-[28px] text-2xl">{feature.icon}</div>
+                <span className="text-[#4D5055] font-medium tablet:text-2xl mobile:text-xl leading-7">{feature.description}</span>
               </div>
             ))}
           </div>
@@ -96,11 +65,12 @@ export default function BusinessPromo() {
         </div> */}
 
       {/* Right Section - Animation */}
-      <div className="flex-1 min-h-full flex items-center justify-center">
-        <div
-          ref={containerRef}
-          aria-hidden
-          className="w-full h-full pointer-events-none"
+      <div className="flex-1 min-h-full flex items-center justify-center p-0 tablet:max-xl:p-10 mobile:max-tablet-xl:p-5 overflow-x-auto overflow-y-hidden scrollbar-hide tablet:overflow-visible">
+        <Lottie
+          animationData={outletAnimation}
+          loop={true}
+          autoplay={true}
+          className="w-full h-full scale-110 tablet:scale-100 origin-center"
         />
       </div>
     </section>

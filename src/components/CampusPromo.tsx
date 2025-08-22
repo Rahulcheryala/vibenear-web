@@ -1,38 +1,9 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import lottie from 'lottie-web'
+import Lottie from 'lottie-react'
+import campusAnimation from '../../public/animations/campus/For college.json'
 
 export default function CampusPromo() {
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const loadAnimation = async () => {
-      try {
-        const workingAnimation = await import('../../public/animations/campus/For college.json')
-        const animationData = workingAnimation.default
-
-        if (containerRef.current) {
-          const anim = lottie.loadAnimation({
-            container: containerRef.current,
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            animationData: animationData
-          })
-
-          return () => {
-            anim.destroy()
-          }
-        }
-      } catch (err) {
-        console.error('Error loading campus animation:', err)
-      }
-    }
-
-    loadAnimation()
-  }, [])
-
   const features = [
     {
       icon: '🎤',
@@ -49,36 +20,37 @@ export default function CampusPromo() {
   ];
 
   return (
-    <section className="pr-[120px] bg-[#FEFCFC] h-[680px] max-h-screen flex flex-wrap">
+    <section id="for-students" className="bg-[#FEFCFC] min-h-screen flex xl:flex-row flex-col-reverse justify-between gap-x-12 mobile:gap-y-9 gap-y-6 tablet:pr-[100px] mobile:p-[60px] py-9 px-5">
       {/* Left Section - Lottie Animation */}
-      <div className="flex-1 min-h-full flex items-center justify-center">
-        <div
-          ref={containerRef}
-          aria-hidden
-          className="w-full h-full pointer-events-none -translate-y-40"
+      <div className="flex-1 min-h-full flex items-center justify-center p-0 tablet:max-xl:p-10 mobile:max-tablet-xl:p-5 overflow-x-auto overflow-y-hidden scrollbar-hide tablet:overflow-visible">
+        <Lottie
+          animationData={campusAnimation}
+          loop={true}
+          autoplay={true}
+          className="w-full h-full sm:-translate-y-40 sm:max-tablet:-translate-y-25 -translate-y-10 scale-[3.5] sm:scale-125 tablet:scale-100 origin-center"
         />
       </div>
 
       {/* Right Section - Text and CTA */}
-      <div className="min-h-[596px] min-w-[546px] place-self-center flex flex-col gap-12">
-        <div className='space-y-3'>
-          <h2 className="text-5xl font-bold text-[#102C66] font-jakarta">
+      <div className="xl:min-h-[596px] xl:min-w-[546px] h-fit w-fit flex flex-col tablet:gap-y-12 mobile:gap-y-6 gap-y-5">
+        <div className='mobile:space-y-3'>
+          <h2 className="tablet:text-5xl text-4xl text-[32px] font-bold text-[#102C66] font-jakarta text-center sm:text-left">
             For campus clubs
-            <p>
+            <p className='text-center sm:text-left'>
               & student communities
             </p>
           </h2>
-          <p className="text-2xl leading-9 font-semibold text-[#1B1E25] font-jakarta">
+          <p className="mobile:text-2xl text-xl leading-9 font-semibold text-[#1B1E25] font-jakarta text-center sm:text-left">
             Grow your crew. Free. Forever.
           </p>
         </div>
 
         {/* Features */}
-        <div className="space-y-6">
+        <div className="mobile:space-y-6 space-y-3 mobile:p-0 p-4">
           {features.map((feature, index) => (
             <div className="flex items-center gap-3" key={index}>
-              <div className="text-4xl">{feature.icon}</div>
-              <span className="text-[#4D5055] font-medium text-2xl leading-7">{feature.description}</span>
+              <div className="tablet:text-4xl mobile:text-[28px] text-2xl">{feature.icon}</div>
+              <span className="text-[#4D5055] font-medium tablet:text-2xl mobile:text-xl leading-7">{feature.description}</span>
             </div>
           ))}
         </div>
