@@ -29,11 +29,14 @@ const redditSans = Reddit_Sans({
   variable: "--font-reddit-sans",
 });
 
+export const viewport = {
+  themeColor: "#FAFAFA"
+};
+
 export const metadata: Metadata = {
+  applicationName: "VibeNear",
   title: "VibeNear - Connect Businesses and Students",
   description: "VibeNear is your ultimate platform for connecting businesses and students, creating opportunities that drive innovation and growth.",
-  applicationName: "VibeNear",
-  themeColor: "#FAFAFA",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
@@ -47,9 +50,9 @@ export const metadata: Metadata = {
       { url: "/web-app-manifest-192x192.png", sizes: "32x32", type: "image/png" },
       { url: "/web-app-manifest-192x192.png", sizes: "16x16", type: "image/png" },
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
     shortcut: ["/favicon.ico"],
-  },
+  }
 };
 
 export default function RootLayout({
