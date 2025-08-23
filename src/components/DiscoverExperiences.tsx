@@ -92,7 +92,7 @@ export default function DiscoverExperiences() {
             {topRowCategories.map((category, index) => (
               <span
                 key={index}
-                className={`${category.color} px-2 py-1 rounded-full flex justify-center items-center gap-1 whitespace-nowrap`}
+                className={`${category.color} px-2 py-1 rounded-full flex justify-center items-center gap-1 whitespace-nowrap select-none`}
               >
                 <span className="text-base">{category.emoji}</span>
                 <span className="text-xs font-medium leading-[22px] text-[#4D5055]">{category.text}</span>
@@ -102,7 +102,7 @@ export default function DiscoverExperiences() {
             {topRowCategories.map((category, index) => (
               <span
                 key={`duplicate-${index}`}
-                className={`${category.color} px-2 py-1 rounded-full flex justify-center items-center gap-1 whitespace-nowrap`}
+                className={`${category.color} px-2 py-1 rounded-full flex justify-center items-center gap-1 whitespace-nowrap select-none`}
               >
                 <span className="text-base">{category.emoji}</span>
                 <span className="text-xs font-medium leading-[22px] text-[#4D5055]">{category.text}</span>
@@ -133,7 +133,7 @@ export default function DiscoverExperiences() {
             {bottomRowCategories.map((category, index) => (
               <span
                 key={index}
-                className={`${category.color} px-2 py-1 rounded-full flex justify-center items-center gap-1 whitespace-nowrap`}
+                className={`${category.color} px-2 py-1 rounded-full flex justify-center items-center gap-1 whitespace-nowrap select-none`}
               >
                 <span className="text-base">{category.emoji}</span>
                 <span className="text-xs font-medium leading-[22px] text-[#4D5055]">{category.text}</span>
@@ -143,7 +143,7 @@ export default function DiscoverExperiences() {
             {bottomRowCategories.map((category, index) => (
               <span
                 key={`duplicate-${index}`}
-                className={`${category.color} px-2 py-1 rounded-full flex justify-center items-center gap-1 whitespace-nowrap`}
+                className={`${category.color} px-2 py-1 rounded-full flex justify-center items-center gap-1 whitespace-nowrap select-none`}
               >
                 <span className="text-base">{category.emoji}</span>
                 <span className="text-xs font-medium leading-[22px] text-[#4D5055]">{category.text}</span>

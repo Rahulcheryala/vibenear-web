@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <section className="relative mobile:min-h-[calc(100vh-110px)] min-h-[calc(100vh-80px)] flex justify-center pt-[calc((100vh-220px-18px)/2)] bg-[#FAFAFA] overflow-hidden">
+    <section className="relative mobile:min-h-[calc(100dvh-110px)] min-h-[calc(100dvh-80px)] flex justify-center pt-[calc((100dvh-220px-18px)/2)] bg-[#FAFAFA] overflow-hidden">
       {/* Lottie Animation - Layered */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
         {/* Middle - responsive width, bottom-centered, preserve aspect */}

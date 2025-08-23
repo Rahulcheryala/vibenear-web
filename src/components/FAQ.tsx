@@ -66,7 +66,7 @@ export default function FAQ() {
       </div>
 
       {/* Accordion container */}
-      <div className="tablet:w-full tablet:max-w-[1000px] mobile:w-full bg-white px-6 pb-12 mobile:px-6 mobile:py-0 tablet:py-12">
+      <div className="tablet:w-full tablet:max-w-[1000px] mobile:w-full bg-white pb-12 mobile:px-6 mobile:py-0 tablet:py-12">
         <div className="flex flex-col gap-y-3 mobile:gap-y-6">
           {faqData.map((faq) => (
             <div
