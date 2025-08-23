@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import type { Viewport } from 'next'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Inter, Plus_Jakarta_Sans, Playfair_Display, Reddit_Sans } from "next/font/google";
 import "./globals.css";
 
@@ -29,7 +31,7 @@ const redditSans = Reddit_Sans({
   variable: "--font-reddit-sans",
 });
 
-export const viewport = {
+export const viewport: Viewport = {
   themeColor: "#FAFAFA"
 };
 
@@ -64,6 +66,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${plusJakarta.variable} ${playfairDisplay.variable} antialiased`}>
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
