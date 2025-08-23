@@ -11,6 +11,7 @@
   --font-inter: var(--font-inter);
   --font-jakarta: var(--font-plus-jakarta-sans);
   --font-playfair: var(--font-playfair-display);
+  --font-reddit: var(--font-reddit-sans);
 }
 
 @theme {
@@ -26,9 +27,21 @@
 }
 
 html {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+}
+
+/* Smooth transitions for all elements */
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -38,12 +51,6 @@ body {
     Helvetica, sans-serif;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-}
-
-/* Ensure content is properly layered above background */
-.content-overlay {
-  position: relative;
-  z-index: 10;
 }
 
 /* Custom scrollbar */
@@ -64,16 +71,6 @@ body {
   background: #3056d3;
 }
 
-/* Smooth transitions for all elements */
-* {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Enhanced smooth scrolling for all scrollable elements */
-* {
-  scroll-behavior: smooth;
-}
-
 button {
   cursor: pointer;
   outline: none;
@@ -85,12 +82,6 @@ button {
   &:active {
     outline: none;
   }
-}
-
-/* Smooth scrolling for specific elements */
-.smooth-scroll {
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
 }
 
 /* Hide scrollbar utility class */
@@ -111,71 +102,6 @@ button {
   }
 }
 
-/* Animation for gradient text */
-@keyframes gradient-shift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-.gradient-text {
-  background: linear-gradient(-45deg, #3758f9, #3056d3, #4f46e5, #3758f9);
-  background-size: 400% 400%;
-  animation: gradient-shift 3s ease infinite;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Sliding text animation */
-@keyframes text-slide {
-  0%,
-  16.666% {
-    transform: translateY(0);
-  }
-  20%,
-  36.666% {
-    transform: translateY(-100%);
-  }
-  40%,
-  56.666% {
-    transform: translateY(-200%);
-  }
-  60%,
-  76.666% {
-    transform: translateY(-300%);
-  }
-  80%,
-  96.666% {
-    transform: translateY(-400%);
-  }
-  100% {
-    transform: translateY(-500%);
-  }
-}
-
-.animate-text-slide {
-  animation: text-slide 6s ease-in-out infinite;
-}
-
-.campus-lottie-wrapper {
-  transform-origin: center center;
-}
-@media (max-width: 833.98px) {
-  .campus-lottie-wrapper {
-    transform: scale(4);
-  }
-}
-@media (min-width: 834px) {
-  .campus-lottie-wrapper {
-    transform: scale(1);
-  }
-}
-
 .app-shot {
   position: relative;
   width: 360px;
@@ -191,5 +117,23 @@ button {
   .app-shot {
     width: 245px;
     height: 335px;
+  }
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

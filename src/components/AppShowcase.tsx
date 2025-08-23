@@ -4,8 +4,8 @@ import Image from 'next/image'
 
 export default function AppShowcase() {
   return (
-    <section id="our-apps" className="min-h-screen bg-[#FDFAEF] tablet:px-[204px] tablet:py-[60px] mobile:p-[60px] py-[60px] px-5 grid place-content-center">
-      <div className="flex flex-wrap w-full gap-x-[200px] mobile:gap-y-12 gap-y-9">
+    <section id="our-apps" className="min-h-screen bg-[#FDFAEF] tablet:px-[204px] tablet:py-[60px] mobile:max-sm:p-10 sm:p-[60px] py-[60px] px-5 grid place-content-center">
+      <div className="flex flex-wrap justify-center w-full gap-x-[200px] mobile:gap-y-12 gap-y-9">
         {/* First Child - User App */}
         <div className="tablet:w-1/2 max-w-[560px] tablet:pb-[60px] pb-0 space-y-6 items-center">
           <div className="app-shot mx-auto">

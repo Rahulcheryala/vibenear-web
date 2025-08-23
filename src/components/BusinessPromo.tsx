@@ -1,7 +1,7 @@
 'use client'
 
 import Lottie from 'lottie-react'
-import outletAnimation from '../../public/animations/outlet/For Outlet.json'
+import outletAnimation from '../../public/animations/outlet/For_Outlet.json'
 
 export default function BusinessPromo() {
   const features = [
@@ -24,7 +24,7 @@ export default function BusinessPromo() {
   ]
 
   return (
-    <section id="for-businesses" className="bg-[#FEFCFC] min-h-screen flex xl:flex-row flex-col justify-between gap-x-12 mobile:gap-y-9 gap-y-6 tablet:pl-[120px] mobile:p-[60px] py-9 px-5">
+    <section id="for-businesses" className="bg-[#FEFCFC] min-h-screen flex xl:flex-row flex-col justify-between gap-x-12 mobile:gap-y-9 gap-y-6 tablet:pl-[120px] mobile:max-sm:p-10 sm:p-[60px] py-9 px-5">
       <div className="flex justify-between xl:items-center items-start">
         {/* Left Section */}
         <div className="xl:min-h-[596px] xl:min-w-[546px] h-fit w-fit flex flex-col tablet:gap-y-12 mobile:gap-y-6 gap-y-5">
@@ -33,7 +33,7 @@ export default function BusinessPromo() {
               Running a local business?
               <p className='text-center sm:text-left'>
                 Get listed for
-                <span className="italic font-extrabold font-playfair pl-2">free</span>
+                <span className="font-playfair pl-2">free</span>
               </p>
             </h2>
             <p className="mobile:text-2xl text-xl leading-9 font-semibold text-[#1B1E25] font-jakarta text-center sm:text-left">

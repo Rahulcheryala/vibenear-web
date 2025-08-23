@@ -1,7 +1,7 @@
 'use client'
 
 import Lottie from 'lottie-react'
-import campusAnimation from '../../public/animations/campus/For college.json'
+import campusAnimation from '../../public/animations/campus/For_college.json'
 
 export default function CampusPromo() {
   const features = [
@@ -20,7 +20,7 @@ export default function CampusPromo() {
   ];
 
   return (
-    <section id="for-students" className="bg-[#FEFCFC] min-h-screen flex xl:flex-row flex-col-reverse justify-between gap-x-12 mobile:gap-y-9 gap-y-6 tablet:pr-[100px] mobile:p-[60px] py-9 px-5">
+    <section id="for-students" className="bg-[#FEFCFC] min-h-screen flex xl:flex-row flex-col-reverse justify-between gap-x-12 mobile:gap-y-9 gap-y-6 tablet:pr-[100px] mobile:max-sm:p-10 sm:p-[60px] py-9 px-5">
       {/* Left Section - Lottie Animation */}
       <div className="flex-1 min-h-full flex items-center justify-center p-0 tablet:max-xl:p-10 mobile:max-tablet-xl:p-5 overflow-x-auto overflow-y-hidden scrollbar-hide tablet:overflow-visible">
         <Lottie

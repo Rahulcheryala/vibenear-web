@@ -113,7 +113,7 @@ export default function HowItWorks() {
       <div className="container sm:space-y-12 mobile:space-y-8 space-y-5 mx-auto">
         <h2 className="tablet:text-5xl mobile:text-4xl text-[32px] tablet:leading-16 mobile:leading-12 leading-11 tablet:font-bold font-semibold text-center text-[#102C66] font-jakarta">
           How VibeNear
-          <span className="font-playfair font-extrabold italic pl-1">
+          <span className="font-playfair pl-1">
             Works
           </span>
         </h2>
@@ -144,7 +144,7 @@ export default function HowItWorks() {
 
           {/* Feature Cards Container */}
           <div className="w-full overflow-x-auto scrollbar-hide">
-            <div className="mx-auto flex justify-start items-center tablet:gap-12 mobile:gap-7 gap-5 w-max px-4 tablet:px-0">
+            <div className="mx-auto flex justify-start items-center tablet:gap-12 mobile:gap-7 gap-5 w-max">
               {(activeTab === 'users' ? userFeatures : businessFeatures).map((feature, index) => (
                 <div
                   key={index}

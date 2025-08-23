@@ -1,13 +1,14 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Footer() {
   const bannerItems = [
-    { text: "VibeNear is built different", icon: "🧩" },
-    { text: "VibeNear is built different", icon: "🌍" },
-    { text: "VibeNear is built different", icon: "🔥" },
-    { text: "VibeNear is built different", icon: "⚡" }
+    { text: "VibeNear is built", icon: "🧩" },
+    { text: "VibeNear is built", icon: "🌍" },
+    { text: "VibeNear is built", icon: "🔥" },
+    { text: "VibeNear is built", icon: "⚡" }
   ]
 
   return (
@@ -30,7 +31,7 @@ export default function Footer() {
                 className="text-white text-2xl font-bold flex items-center gap-6 whitespace-nowrap"
               >
                 <span className="mobile:text-[32px] text-2xl">{item.icon}</span>
-                <span className="tablet:text-2xl mobile:text-xl text-base">{item.text}</span>
+                <p className="tablet:text-2xl mobile:text-xl text-base">{item.text} <span className='font-playfair'>different</span></p>
               </span>
             ))}
             {/* Duplicate for seamless loop */}
@@ -40,7 +41,7 @@ export default function Footer() {
                 className="text-white text-2xl font-bold flex items-center gap-6 whitespace-nowrap"
               >
                 <span className="mobile:text-[32px] text-2xl">{item.icon}</span>
-                <span className="tablet:text-2xl mobile:text-xl text-base">{item.text}</span>
+                <p className="tablet:text-2xl mobile:text-xl text-base">{item.text} <span className='font-playfair'>different</span></p>
               </span>
             ))}
           </div>
@@ -48,37 +49,40 @@ export default function Footer() {
       </div>
 
       {/* Main Footer Content */}
-      <div className="pt-[60px] pb-9 tablet:px-[100px] mobile:px-[60px] px-5 bg-[#0C214C] flex flex-col tablet:gap-y-12 gap-y-9">
+      <div className="pt-[60px] pb-9 tablet:px-[100px] mobile:max-sm:p-10 sm:p-[60px] px-5 bg-[#0C214C] flex flex-col tablet:gap-y-12 gap-y-9">
         <div className="flex flex-wrap justify-between items-start gap-y-9">
           {/* Left Side - Logo and Name */}
           <div className="w-fit">
-            <a href="#" className="tablet:h-[120px] mobile:h-20 h-[72px] flex-shrink-0 flex items-center gap-x-8">
+            <Link href="#" className="tablet:h-[120px] mobile:h-20 h-[72px] flex-shrink-0 flex items-center gap-x-8">
               <Image
-                src="/images/logo/FooterLogo.svg"
+                src="/images/logo/Logo.svg"
                 alt="VibeNear Logo"
                 width={24}
                 height={24}
                 className="w-24 h-24 rounded-full object-cover"
               />
               <span className="tablet:text-[56px] mobile:text-[38px] text-[34px] font-semibold leading[49px] text-white">VibeNear</span>
-            </a>
+            </Link>
           </div>
 
           {/* Right Side - Company and Follow Us */}
-          <div className="flex flex-wrap items-start gap-[120px]">
+          <div className="flex mobile:flex-row flex-col items-start gap-x-[120px] gap-y-6">
             {/* Company Column */}
-            <div className="space-y-6">
+            <div className="mobile:space-y-6 space-y-3">
               <h4 className="tablet:text-2xl mobile:text-xl text-lg leading-7 font-bold text-white">
                 Company
               </h4>
               <ul className="space-y-4">
                 <li>
-                  <a href="#" className="text-white tablet:text-lg text-base font-semibold leading-5 hover:text-blue-200 transition-colors">
+                  <Link href="#why-vibe-near" className="text-white tablet:text-lg text-base font-semibold leading-5 hover:text-blue-200 transition-colors">
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="text-white tablet:text-lg text-base font-semibold leading-5 hover:text-blue-200 transition-colors">
+                  <a
+                    href="mailto:careers@vibenear.com"
+                    className="text-white tablet:text-lg text-base font-semibold leading-5 hover:text-blue-200 transition-colors"
+                  >
                     Careers
                   </a>
                 </li>
@@ -86,23 +90,23 @@ export default function Footer() {
             </div>
 
             {/* Follow Us Column */}
-            <div className="space-y-6">
+            <div className="mobile:space-y-6 space-y-3">
               <h4 className="tablet:text-2xl mobile:text-xl text-lg leading-7 font-bold text-white">
                 Follow Us
               </h4>
-              <div className="grid grid-cols-2 gap-6 max-w-[112px] max-h-[112px]">
-                <a href="#" className="tablet:w-8 tablet:h-8 mobile:w-[28px] mobile:h-[28px] w-6 h-6 flex items-center justify-center">
+              <div className="mobile:grid mobile:grid-cols-2 mobile:gap-6 mobile:max-w-[112px] mobile:max-h-[112px] flex flex-nowrap gap-x-9">
+                <Link href="#" className="tablet:w-8 tablet:h-8 mobile:w-[28px] mobile:h-[28px] w-6 h-6 flex items-center justify-center">
                   <Image src="/images/sections/XLogo.svg" alt="X" width={32} height={32} />
-                </a>
-                <a href="#" className="tablet:w-8 tablet:h-8 mobile:w-[28px] mobile:h-[28px] w-6 h-6 flex items-center justify-center">
+                </Link>
+                <Link href="#" className="tablet:w-8 tablet:h-8 mobile:w-[28px] mobile:h-[28px] w-6 h-6 flex items-center justify-center">
                   <Image src="/images/sections/LinkedinLogo.svg" alt="in" width={32} height={32} />
-                </a>
-                <a href="#" className="tablet:w-8 tablet:h-8 mobile:w-[28px] mobile:h-[28px] w-6 h-6 flex items-center justify-center">
+                </Link>
+                <Link href="#" className="tablet:w-8 tablet:h-8 mobile:w-[28px] mobile:h-[28px] w-6 h-6 flex items-center justify-center">
                   <Image src="/images/sections/FacebookLogo.svg" alt="f" width={32} height={32} />
-                </a>
-                <a href="#" className="tablet:w-8 tablet:h-8 mobile:w-[28px] mobile:h-[28px] w-6 h-6 flex items-center justify-center">
+                </Link>
+                <Link href="#" className="tablet:w-8 tablet:h-8 mobile:w-[28px] mobile:h-[28px] w-6 h-6 flex items-center justify-center">
                   <Image src="/images/sections/InstagramLogo.svg" alt="t" width={32} height={32} />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -116,24 +120,13 @@ export default function Footer() {
               All Rights Reserved
             </div>
             <div className="flex mobile:flex-row flex-col gap-6 mobile:items-center">
-              <a href="#" className="text-white tablet:text-base text-sm font-normal leading-5">Terms of Use</a>
-              <a href="#" className="text-white tablet:text-base text-sm font-normal leading-5">Privacy Policy</a>
-              <a href="#" className="text-white tablet:text-base text-sm font-normal leading-5">Cookie Policy</a>
+              <Link href="#" className="text-white tablet:text-base text-sm font-normal leading-5">Terms of Use</Link>
+              <Link href="#" className="text-white tablet:text-base text-sm font-normal leading-5">Privacy Policy</Link>
+              <Link href="#" className="text-white tablet:text-base text-sm font-normal leading-5">Cookie Policy</Link>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Bottom Section - Copyright and Legal Links */}
-
-      <style dangerouslySetInnerHTML={{
-        __html: `
-          @keyframes moveLeft {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-        `
-      }} />
     </footer>
   )
 }
