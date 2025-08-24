@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Lottie from 'lottie-react'
 import discoverByVibe from '../../public/animations/Discover_by_Vibe.json'
 import bookmarkAndUpvote from '../../public/animations/Bookmark_and_Upvote.json'
@@ -11,6 +11,15 @@ import oneSimpleFee from '../../public/animations/One_Simple_Fee.json'
 
 export default function HowItWorks() {
   const [activeTab, setActiveTab] = useState('users')
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  // Reset horizontal scroll position when tab changes
+  useEffect(() => {
+    const el = scrollRef.current
+    if (el) {
+      el.scrollTo({ left: 0, behavior: 'smooth' })
+    }
+  }, [activeTab])
 
   const userFeatures = [
     {
@@ -129,13 +138,13 @@ export default function HowItWorks() {
 
               <button
                 onClick={() => setActiveTab('users')}
-                className={`relative cursor-pointer flex-1 px-4 py-3 rounded-2xl font-semibold tablet:text-xl mobile:text-lg text-base mobile:leading-6 leading-5 transition-all duration-300 min-w-[140px] ${activeTab === 'users' ? 'text-white' : 'text-[#808286]'}`}
+                className={`relative cursor-pointer flex-1 px-4 py-3 rounded-2xl font-semibold tablet:text-xl mobile:text-lg text-base mobile:leading-6 leading-5 transition-all duration-300 min-w-[140px] ${activeTab === 'users' ? 'text-white' : 'text-[#4D5055]'}`}
               >
                 For Users
               </button>
               <button
                 onClick={() => setActiveTab('businesses')}
-                className={`relative cursor-pointer flex-1 px-4 py-3 rounded-2xl font-semibold tablet:text-xl mobile:text-lg text-base mobile:leading-6 leading-5 transition-all duration-300 min-w-[140px] ${activeTab === 'businesses' ? 'text-white' : 'text-[#808286]'}`}
+                className={`relative cursor-pointer flex-1 px-4 py-3 rounded-2xl font-semibold tablet:text-xl mobile:text-lg text-base mobile:leading-6 leading-5 transition-all duration-300 min-w-[140px] ${activeTab === 'businesses' ? 'text-white' : 'text-[#4D5055]'}`}
               >
                 For Businesses
               </button>
@@ -143,37 +152,38 @@ export default function HowItWorks() {
           </div>
 
           {/* Feature Cards Container */}
-          <div className="w-full overflow-x-auto scrollbar-hide">
+          <div ref={scrollRef} className="w-full overflow-x-auto scrollbar-hide snap-x sm:snap-proximity snap-mandatory scroll-smooth mobile:max-sm:px-14 px-8 sm:px-0">
             <div className="mx-auto flex justify-start items-center tablet:gap-12 mobile:gap-7 gap-5 w-max">
-              {(activeTab === 'users' ? userFeatures : businessFeatures).map((feature, index) => (
-                <div
-                  key={index}
-                  className="bg-white tablet:w-[410px] tablet:h-[490px] w-[240px] h-[305px] tablet:rounded-[44px] rounded-[26px] border-[#0C214C] border-l-[1px] border-t-[1px] tablet:border-r-[5px] tablet:border-b-[5px] border-r-[3px] border-b-[3px] tablet:p-6 tablet:pb-9 p-[14px] pb-[21px] transition-all duration-300 min-h-[320px] flex flex-col justify-center tablet:gap-y-4 gap-y-[9px] flex-shrink-0"
-                >
+              {(activeTab === 'users' ? userFeatures : businessFeatures).map((feature, index) => {
+                return (
                   <div
-                    // className="bg-red-200"
-                    style={{
-                      '--mobile-width': feature.sizes.mobile.animationWidth,
-                      '--mobile-height': feature.sizes.mobile.animationHeight,
-                      '--tablet-width': feature.sizes.tablet.animationWidth,
-                      '--tablet-height': feature.sizes.tablet.animationHeight,
-                      maxWidth: 'var(--mobile-width)',
-                      maxHeight: 'var(--mobile-height)'
-                    } as React.CSSProperties & { [key: string]: string }}
+                    key={index}
+                    className={`bg-white tablet:w-[410px] tablet:h-[490px] w-[240px] h-[305px] tablet:rounded-[44px] rounded-[26px] border-[#1B1E25] border-l-[1px] border-t-[1px] tablet:border-r-[5px] tablet:border-b-[5px] border-r-[3px] border-b-[3px] tablet:p-6 tablet:pb-9 p-[14px] pb-[21px] transition-all duration-300 min-h-[320px] flex flex-col justify-center tablet:gap-y-4 gap-y-[9px] flex-shrink-0 snap-center`}
                   >
-                    <Lottie
-                      animationData={feature.animation}
-                      loop={true}
-                      autoplay={true}
-                      style={{ width: '100%', height: '100%' }}
-                    />
+                    <div
+                      style={{
+                        '--mobile-width': feature.sizes.mobile.animationWidth,
+                        '--mobile-height': feature.sizes.mobile.animationHeight,
+                        '--tablet-width': feature.sizes.tablet.animationWidth,
+                        '--tablet-height': feature.sizes.tablet.animationHeight,
+                        maxWidth: 'var(--mobile-width)',
+                        maxHeight: 'var(--mobile-height)'
+                      } as React.CSSProperties & { [key: string]: string }}
+                    >
+                      <Lottie
+                        animationData={feature.animation}
+                        loop={true}
+                        autoplay={true}
+                        style={{ width: '100%', height: '100%' }}
+                      />
+                    </div>
+                    <div className='flex flex-col tablet:gap-2 gap-1'>
+                      <h3 className="text-[#0C214C] tablet:text-3xl mobile:text-lg tablet:leading-10 mobile:leading-[22px] font-semibold ">{feature.title}</h3>
+                      <p className="text-[#4D5055] tablet:text-lg mobile:text-sm tablet:leading-8 mobile:leading-[20px] font-normal">{feature.description}</p>
+                    </div>
                   </div>
-                  <div className='flex flex-col tablet:gap-2 gap-1'>
-                    <h3 className="text-[#0C214C] tablet:text-3xl mobile:text-lg tablet:leading-10 mobile:leading-[22px] font-semibold ">{feature.title}</h3>
-                    <p className="text-[#808286] tablet:text-lg mobile:text-sm tablet:leading-8 mobile:leading-[20px] font-normal">{feature.description}</p>
-                  </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </div>

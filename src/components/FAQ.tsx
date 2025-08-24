@@ -12,27 +12,27 @@ const faqData: FAQItem[] = [
   {
     id: 1,
     question: "Do I need to create an account to explore?",
-    answer: "No, you can browse and explore VibeNear without creating an account. However, creating an account gives you access to additional features like saving favorites, posting content, and connecting with others in your community."
+    answer: "You can sign up with your phone number to start exploring VibeNear."
   },
   {
     id: 2,
     question: "How do I know what's trending nearby?",
-    answer: "VibeNear uses real-time data and community engagement to show you what's trending in your area. Our algorithm considers factors like post popularity, local interest, and recent activity to surface the most relevant trending content near you."
+    answer: "VibeNear's unique upvoting system allows users to collectively highlight popular posts. When a post receives enough upvotes from people around you, it becomes a \"trending\" post."
   },
   {
     id: 3,
     question: "Is VibeNear free to use?",
-    answer: "Yes, VibeNear is completely free for users to explore, post content, and connect with their local community. We believe in making local discovery accessible to everyone."
+    answer: "Yes, VibeNear is completely free for users to explore and engage with content."
   },
   {
     id: 4,
     question: "Do I need a shop to post?",
-    answer: "No, you don't need a physical shop to post on VibeNear. Whether you're a business owner, event organizer, or just someone sharing local insights, you can post about anything happening in your area."
+    answer: "No, you don't need to be a traditional shop owner. The platform is also for community owners like college clubs, local artisans, and other community groups who want to post and connect with their audience."
   },
   {
     id: 5,
     question: "How much does it cost to list my outlet?",
-    answer: "Listing your outlet on VibeNear is free! We offer a simple, transparent pricing model with no hidden fees. You only pay when you want to promote your content or access premium business features."
+    answer: "There is a one-time listing fee for outlets. However, for a limited time, we are offering an early-bird special for new listings."
   }
 ]
 
@@ -78,9 +78,9 @@ export default function FAQ() {
                 className="flex w-full items-center justify-between text-left tablet:p-6 p-4"
                 onClick={() => toggleFaq(faq.id)}
               >
-                <h4 className="tablet:text-lg text-base mobile:leading-7 leading-[22px]  font-semibold text-[#0C214C] pr-4">
+                <h3 className="tablet:text-lg text-base mobile:leading-7 leading-[22px]  font-semibold text-[#0C214C] pr-4">
                   {faq.question}
-                </h4>
+                </h3>
                 <svg
                   className={`h-6 w-6 text-[#0C214C] transition-transform duration-300 ease-in-out flex-shrink-0 ${openFaq === faq.id ? 'rotate-180' : 'rotate-0'
                     }`}

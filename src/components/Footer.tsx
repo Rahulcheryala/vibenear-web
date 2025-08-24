@@ -1,52 +1,12 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
+import AnimatedBanner from './AnimatedBanner'
 
 export default function Footer() {
-  const bannerItems = [
-    { text: "VibeNear is built", icon: "🧩" },
-    { text: "VibeNear is built", icon: "🌍" },
-    { text: "VibeNear is built", icon: "🔥" },
-    { text: "VibeNear is built", icon: "⚡" }
-  ]
-
   return (
     <footer className="relative z-10 overflow-hidden">
       {/* Animated Banner */}
-      <div className="h-16 py-4 px-12 flex items-center gap-x-12 overflow-hidden bg-[#102C66]">
-        <div className="flex gap-6 max-w-7xl mx-auto">
-          <div
-            className="flex gap-6"
-            style={{
-              animation: 'moveLeft 15s linear infinite',
-              transform: 'translateX(0)'
-            }}
-            onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'paused'}
-            onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'running'}
-          >
-            {bannerItems.map((item, index) => (
-              <span
-                key={index}
-                className="text-white text-2xl font-bold flex items-center gap-6 whitespace-nowrap"
-              >
-                <span className="mobile:text-[32px] text-2xl">{item.icon}</span>
-                <p className="tablet:text-2xl mobile:text-xl text-base">{item.text} <span className='font-playfair'>different</span></p>
-              </span>
-            ))}
-            {/* Duplicate for seamless loop */}
-            {bannerItems.map((item, index) => (
-              <span
-                key={`duplicate-${index}`}
-                className="text-white text-2xl font-bold flex items-center gap-6 whitespace-nowrap"
-              >
-                <span className="mobile:text-[32px] text-2xl">{item.icon}</span>
-                <p className="tablet:text-2xl mobile:text-xl text-base">{item.text} <span className='font-playfair'>different</span></p>
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
+      <AnimatedBanner />
 
       {/* Main Footer Content */}
       <div className="pt-[60px] pb-9 tablet:px-[100px] mobile:max-sm:p-10 sm:p-[60px] px-5 bg-[#0C214C] flex flex-col tablet:gap-y-12 gap-y-9">
@@ -69,9 +29,9 @@ export default function Footer() {
           <div className="flex mobile:flex-row flex-col items-start gap-x-[120px] gap-y-6">
             {/* Company Column */}
             <div className="mobile:space-y-6 space-y-3">
-              <h4 className="tablet:text-2xl mobile:text-xl text-lg leading-7 font-bold text-white">
+              <h3 className="tablet:text-2xl mobile:text-xl text-lg leading-7 font-bold text-white">
                 Company
-              </h4>
+              </h3>
               <ul className="space-y-4">
                 <li>
                   <Link href="#why-vibe-near" className="text-white tablet:text-lg text-base font-semibold leading-5 hover:text-blue-200 transition-colors">

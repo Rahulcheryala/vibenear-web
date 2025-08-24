@@ -1,18 +1,14 @@
 import type { Metadata } from "next";
 import type { Viewport } from 'next'
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Inter, Plus_Jakarta_Sans, Playfair_Display, Reddit_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Playfair_Display, Reddit_Sans } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-plus-jakarta-sans",
+  preload: true,
 });
 
 const playfairDisplay = Playfair_Display({
@@ -21,14 +17,15 @@ const playfairDisplay = Playfair_Display({
   style: ["italic"],
   weight: ["800"],
   variable: "--font-playfair-display",
+  preload: true,
 });
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const redditSans = Reddit_Sans({
   subsets: ["latin"],
   display: "swap",
   weight: ["600", "700"],
   variable: "--font-reddit-sans",
+  preload: true,
 });
 
 export const viewport: Viewport = {
@@ -37,8 +34,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   applicationName: "VibeNear",
-  title: "VibeNear - Connect Businesses and Students",
-  description: "VibeNear is your ultimate platform for connecting businesses and students, creating opportunities that drive innovation and growth.",
+  title: "VibeNear - Live Local Discovery",
+  description: "VibeNear is the ultimate live local discovery platform, helping you instantly find what's happening around you. Whether you're a resident, a new tenant, or a student, VibeNear is your go-to guide for a great night out.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
@@ -49,6 +46,7 @@ export const metadata: Metadata = {
     icon: [
       { url: "/favicon.ico" },
       { url: "/icon.svg", type: "image/svg+xml" },
+      { url: '/icon-48x48.png', sizes: '48x48', type: 'image/png' },
       { url: "/web-app-manifest-192x192.png", sizes: "32x32", type: "image/png" },
       { url: "/web-app-manifest-192x192.png", sizes: "16x16", type: "image/png" },
     ],
@@ -64,7 +62,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${plusJakarta.variable} ${playfairDisplay.variable} antialiased`}>
+      <body className={`${plusJakarta.variable} ${playfairDisplay.variable} ${redditSans.variable} antialiased`}>
         {children}
         <SpeedInsights />
       </body>

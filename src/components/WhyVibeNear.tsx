@@ -1,4 +1,3 @@
-'use client'
 import Image from 'next/image'
 import MagnifyingGlass from '../../public/images/sections/MagnifyingGlass.svg'
 import Tickets from '../../public/images/sections/Tickets.svg'
@@ -22,7 +21,7 @@ export default function WhyVibeNear() {
           <div className="flex gap-9 flex-wrap justify-center">
             {/* FOR USERS Frame */}
             <div className='flex flex-col gap-4'>
-              <p className="text-[#808286] font-semibold tablet:text-[28px] sm:text-2xl tablet:leading-9 sm:leading-[30px] w-full text-center sm:text-left">FOR USERS</p>
+              <p className="text-[#4D5055] font-semibold tablet:text-[28px] sm:text-2xl tablet:leading-9 sm:leading-[30px] w-full text-center sm:text-left">FOR USERS</p>
               <div className="sm:w-[740px] sm:h-[540px] w-[353px] h-fit bg-[#FF5E5B] sm:rounded-[36px] rounded-3xl border-r-[5px] border-b-[5px] border-[#4C1C1B] sm:p-5 p-4 flex sm:flex-row flex-col sm:gap-4 gap-3">
                 {/* Left Section - Fixed Width */}
                 <div className="sm:w-[286px] sm:h-full w-full h-fit bg-white rounded-xl p-4 flex flex-col sm:gap-3 gap-y-2 relative overflow-hidden">
@@ -57,7 +56,7 @@ export default function WhyVibeNear() {
 
             {/* FOR BUSINESSES Frame */}
             <div className='flex flex-col-reverse gap-4'>
-              <p className="text-[#808286] font-semibold tablet:text-[28px] sm:text-2xl text-xl tablet:leading-9 sm:leading-[30px] w-full text-center sm:text-left">FOR BUSINESSES</p>
+              <p className="text-[#4D5055] font-semibold tablet:text-[28px] sm:text-2xl text-xl tablet:leading-9 sm:leading-[30px] w-full text-center sm:text-left">FOR BUSINESSES</p>
               <div className="sm:w-[740px] sm:h-[540px] w-[353px] h-fit bg-[#F4CF65] sm:rounded-[36px] rounded-3xl border-r-[5px] border-b-[5px] border-[#493E1E] sm:p-5 p-4 flex sm:flex-row flex-col sm:gap-4 gap-3">
                 {/* Left Section - Fixed Width */}
                 <div className="sm:w-[286px] sm:h-full w-full h-fit bg-white rounded-xl p-4 flex flex-col sm:gap-3 gap-y-2 relative overflow-hidden">

@@ -2,19 +2,21 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import SignupModal from './SignupModal'
-import LoginModal from './LoginModal'
 import Link from 'next/link'
+
+// Shared navigation items configuration
+const navigationItems = [
+  { href: '#how-it-works', label: 'How it Works' },
+  { href: '#why-vibe-near', label: 'Why Us' },
+  { href: '#for-businesses', label: 'For Businesses' },
+  { href: '#for-students', label: 'For Students' },
+  { href: '#faqs', label: 'FAQs' },
+  { href: '#our-apps', label: 'Our Apps' }
+]
 
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false)
-  const [isSignupModalOpen, setIsSignupModalOpen] = useState(false)
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
-
-  // Debug modal states
-  useEffect(() => {
-    console.log('Modal states:', { isSignupModalOpen, isLoginModalOpen })
-  }, [isSignupModalOpen, isLoginModalOpen])
+  const dropdownTabIndex = navbarOpen ? 0 : -1
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -54,54 +56,16 @@ export default function Navbar() {
             {/* Second Child - Navigation Links (Desktop) */}
             <nav className="hidden xl:block">
               <ul className="flex gap-9">
-                <li>
-                  <Link
-                    href="#how-it-works"
-                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
-                  >
-                    How it Works
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#why-vibe-near"
-                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
-                  >
-                    Why Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#for-businesses"
-                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
-                  >
-                    For Businesses
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#for-students"
-                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
-                  >
-                    For Students
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#faqs"
-                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
-                  >
-                    FAQs
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#our-apps"
-                    className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
-                  >
-                    Our Apps
-                  </Link>
-                </li>
+                {navigationItems.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="text-[20px] font-semibold leading-6 text-[#4D5055] hover:text-[#102C66] transition-colors whitespace-nowrap"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </nav>
 
@@ -111,8 +75,7 @@ export default function Navbar() {
               <div className="hidden sm:block">
                 <Link
                   href="#join-waitlist"
-                  // onClick={() => setIsSignupModalOpen(true)}
-                  className="h-[48px] w-[190px] flex justify-center items-center px-6 py-3 bg-[#2970FF] text-xl leading-6 text-white font-semibold rounded-xl hover:bg-[#1E5AE8] transition-colors duration-200 whitespace-nowrap"
+                  className="h-[48px] w-[190px] flex justify-center items-center px-6 py-3 bg-[#1E5AE8] text-xl leading-6 text-white font-semibold rounded-xl hover:bg-[#1A4FD1] transition-colors duration-200 whitespace-nowrap"
                 >
                   Join Waitlist
                 </Link>
@@ -151,71 +114,27 @@ export default function Navbar() {
                   aria-hidden={!navbarOpen}
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <nav className="py-2">
+                  <nav className="py-2" role="menu" aria-label="Mobile navigation">
                     <ul className="space-y-1 text-center">
-                      <li>
-                        <Link
-                          href="#how-it-works"
-                          className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
-                          onClick={() => setNavbarOpen(false)}
-                        >
-                          How it Works
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="#why-vibe-near"
-                          className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
-                          onClick={() => setNavbarOpen(false)}
-                        >
-                          Why Us
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="#for-businesses"
-                          className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
-                          onClick={() => setNavbarOpen(false)}
-                        >
-                          For Businesses
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="#for-students"
-                          className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
-                          onClick={() => setNavbarOpen(false)}
-                        >
-                          For Students
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="#faqs"
-                          className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
-                          onClick={() => setNavbarOpen(false)}
-                        >
-                          FAQs
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="#our-apps"
-                          className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
-                          onClick={() => setNavbarOpen(false)}
-                        >
-                          Our Apps
-                        </Link>
-                      </li>
+                      {navigationItems.map((item) => (
+                        <li key={item.href}>
+                          <Link
+                            href={item.href}
+                            className="block px-4 py-3 text-[18px] font-semibold text-[#4D5055] hover:text-[#102C66] hover:bg-gray-50 transition-colors"
+                            tabIndex={dropdownTabIndex}
+                            onClick={() => setNavbarOpen(false)}
+                          >
+                            {item.label}
+                          </Link>
+                        </li>
+                      ))}
 
                       {/* Mobile CTA in dropdown */}
                       <li className="sm:hidden border-t border-gray-200 mt-2 pt-2 px-6">
                         <button
-                          onClick={() => {
-                            setNavbarOpen(false)
-                            setIsSignupModalOpen(true)
-                          }}
-                          className="w-full h-[48px] bg-[#2970FF] text-white font-semibold rounded-lg hover:bg-[#1E5AE8] transition-colors duration-200"
+                          onClick={() => setNavbarOpen(false)}
+                          className="w-full h-[48px] bg-[#1E5AE8] text-white font-semibold rounded-lg hover:bg-[#1A4FD1] transition-colors duration-200"
+                          tabIndex={dropdownTabIndex}
                         >
                           Join Waitlist
                         </button>
@@ -228,26 +147,6 @@ export default function Navbar() {
           </div>
         </div>
       </header>
-
-      {/* Modals */}
-      <SignupModal
-        isOpen={isSignupModalOpen}
-        onClose={() => setIsSignupModalOpen(false)}
-        onSwitchToLogin={() => {
-          console.log('Switching from signup to login modal')
-          setIsSignupModalOpen(false)
-          setIsLoginModalOpen(true)
-        }}
-      />
-      <LoginModal
-        isOpen={isLoginModalOpen}
-        onClose={() => setIsLoginModalOpen(false)}
-        onSwitchToSignup={() => {
-          console.log('Switching from login to signup modal')
-          setIsLoginModalOpen(false)
-          setIsSignupModalOpen(true)
-        }}
-      />
     </>
   )
 }

@@ -99,15 +99,17 @@ export default function Contact() {
             <div className="space-y-9">
               <div className="relative">
                 <input
+                  id="name"
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
+                  autoComplete="name"
                   aria-invalid={!!errors.name}
                   aria-describedby={errors.name ? 'name-error' : undefined}
                   className={`${inputBase} ${borderFor('name')}`}
                 />
-                <label className="absolute left-3 top-0 -translate-y-1/2 bg-white px-2 text-base font-semibold text-[#808286] leading-[22px]">
+                <label htmlFor="name" className="absolute left-3 top-0 -translate-y-1/2 bg-white px-2 text-base font-semibold text-[#4D5055] leading-[22px]">
                   NAME
                 </label>
                 {errors.name && (
@@ -119,15 +121,17 @@ export default function Contact() {
 
               <div className='relative'>
                 <input
+                  id="phone"
                   type="tel"
                   name="phone"
                   value={formData.phone}
+                  autoComplete="tel"
                   onChange={handleChange}
                   aria-invalid={!!errors.phone}
                   aria-describedby={errors.phone ? 'phone-error' : undefined}
                   className={`${inputBase} ${borderFor('phone')}`}
                 />
-                <label className="absolute left-3 top-0 -translate-y-1/2 bg-white px-2 text-base font-semibold text-[#808286] leading-[22px]">
+                <label htmlFor="phone" className="absolute left-3 top-0 -translate-y-1/2 bg-white px-2 text-base font-semibold text-[#4D5055] leading-[22px]">
                   PHONE NUMBER
                 </label>
                 {errors.phone && (
@@ -139,15 +143,17 @@ export default function Contact() {
 
               <div className='relative'>
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   value={formData.email}
+                  autoComplete="email"
                   onChange={handleChange}
                   aria-invalid={!!errors.email}
                   aria-describedby={errors.email ? 'email-error' : undefined}
                   className={`${inputBase} ${borderFor('email')}`}
                 />
-                <label className="absolute left-3 top-0 -translate-y-1/2 bg-white px-2 text-base font-semibold text-[#808286] leading-[22px]">
+                <label htmlFor="email" className="absolute left-3 top-0 -translate-y-1/2 bg-white px-2 text-base font-semibold text-[#4D5055] leading-[22px]">
                   EMAIL (OPTIONAL)
                 </label>
                 {errors.email && (
@@ -159,15 +165,17 @@ export default function Contact() {
 
               <div className='relative'>
                 <textarea
+                  id="message"
                   rows={4}
                   name="message"
                   value={formData.message}
+                  autoComplete="off"
                   onChange={handleChange}
                   aria-invalid={!!errors.message}
                   aria-describedby={errors.message ? 'message-error' : undefined}
                   className={`${inputBase} ${borderFor('message')} resize-none`}
                 ></textarea>
-                <label className="absolute left-3 top-0 -translate-y-1/2 bg-white px-2 text-base font-semibold text-[#808286] leading-[22px]">
+                <label htmlFor="message" className="absolute left-3 top-0 -translate-y-1/2 bg-white px-2 text-base font-semibold text-[#4D5055] leading-[22px]">
                   MESSAGE
                 </label>
                 {errors.message && (
@@ -183,9 +191,9 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-[320px] h-[60px] px-9 py-[18px] bg-[#2970FF] text-[20px] leading-6 text-white font-semibold rounded-xl hover:bg-[#1E5AE8] transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-[320px] h-[60px] px-9 py-[18px] bg-[#1E5AE8] text-[20px] leading-6 text-white font-semibold rounded-xl hover:bg-[#1A4FD1] transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Join Waitlist
+                {isSubmitting ? 'Joining...' : 'Join Waitlist'}
               </button>
             </div>
           </form>

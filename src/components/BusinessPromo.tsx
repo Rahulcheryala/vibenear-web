@@ -1,5 +1,3 @@
-'use client'
-
 import Lottie from 'lottie-react'
 import outletAnimation from '../../public/animations/outlet/For_Outlet.json'
 

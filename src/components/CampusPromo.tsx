@@ -1,5 +1,3 @@
-'use client'
-
 import Lottie from 'lottie-react'
 import campusAnimation from '../../public/animations/campus/For_college.json'
 
