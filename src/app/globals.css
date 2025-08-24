@@ -1,14 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafafa;
+  --foreground: #102c66;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #fafafa;
+    --foreground: #102c66;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-inter: var(--font-inter);
   --font-jakarta: var(--font-plus-jakarta-sans);
   --font-playfair: var(--font-playfair-display);
   --font-reddit: var(--font-reddit-sans);
@@ -17,13 +23,6 @@
 @theme {
   --breakpoint-mobile: 394px;
   --breakpoint-tablet: 834px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 html {
@@ -47,10 +46,11 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-plus-jakarta-sans), var(--font-inter), Arial,
-    Helvetica, sans-serif;
-  scroll-behavior: smooth;
+  font-family: var(--font-plus-jakarta-sans), Arial, Helvetica, sans-serif;
   -webkit-overflow-scrolling: touch;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Custom scrollbar */
@@ -59,7 +59,9 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #fefcfc;
+  background: transparent !important;
+  border: none;
+  box-shadow: none;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -69,6 +71,83 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #3056d3;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Hide scrollbar utility class */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* Privacy Policy Page Styles */
+.privacy-policy-content {
+  font-family: "Times New Roman", serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.privacy-policy-content h1,
+.privacy-policy-content h2,
+.privacy-policy-content h3,
+.privacy-policy-content h4,
+.privacy-policy-content h5,
+.privacy-policy-content h6 {
+  color: #0f4761;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+
+.privacy-policy-content h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.privacy-policy-content h2 {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.privacy-policy-content h3 {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.privacy-policy-content p {
+  margin-bottom: 1em;
+  text-align: justify;
+}
+
+.privacy-policy-content ol {
+  margin-left: 2em;
+  margin-bottom: 1em;
+}
+
+.privacy-policy-content li {
+  margin-bottom: 0.5em;
+  text-align: justify;
+}
+
+.privacy-policy-content strong {
+  font-weight: bold;
+  color: #0f4761;
+}
+
+.privacy-policy-content a {
+  color: #467886;
+  text-decoration: underline;
+}
+
+.privacy-policy-content a:hover {
+  color: #0f4761;
 }
 
 button {
@@ -82,16 +161,6 @@ button {
   &:active {
     outline: none;
   }
-}
-
-/* Hide scrollbar utility class */
-.scrollbar-hide {
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-  scrollbar-width: none; /* Firefox */
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
 }
 
 /* Responsive animation sizing */
@@ -120,6 +189,39 @@ button {
   }
 }
 
+/* Hero animation scaling with performance optimizations */
+.hero-side {
+  transform-origin: bottom left;
+  will-change: transform;
+}
+
+.hero-right.hero-side {
+  transform-origin: bottom right;
+  will-change: transform;
+}
+
+/* Mobile: make sides much larger */
+@media (max-width: 833.98px) {
+  .hero-side {
+    transform: scale(1.8);
+  }
+}
+
+/* Tablet: large but slightly reduced */
+@media (min-width: 834px) and (max-width: 1279.98px) {
+  .hero-side {
+    transform: scale(1.5);
+  }
+}
+
+/* Desktop: modest upscale */
+@media (min-width: 1280px) {
+  .hero-side {
+    transform: scale(1.25);
+  }
+}
+
+/* Performance-optimized animations */
 @keyframes moveLeft {
   0% {
     transform: translateX(0);
@@ -136,4 +238,37 @@ button {
   100% {
     transform: translateX(0);
   }
+}
+
+/* Loading skeleton animations */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Critical rendering path optimizations */
+.hero,
+.navbar {
+  contain: layout style paint;
+}
+
+/* Reduce paint operations for smooth scrolling */
+.snap-y,
+.snap-x {
+  will-change: scroll-position;
+}
+
+/* Optimize Lottie animations */
+.lottie-container {
+  contain: layout style paint;
+  will-change: transform;
 }
