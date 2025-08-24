@@ -61,10 +61,10 @@ export default function Hero() {
       {/* Content Overlay */}
       <div className="relative z-30 text-center max-w-4xl">
         {/* Main Heading */}
-        <h1 className="tablet:text-7xl mobile:text-5xl text-[32px] font-bold text-[#102C66] leading-tight -translate-y-1/2">
+        <h2 className="tablet:text-7xl mobile:text-5xl text-[32px] font-bold text-[#102C66] leading-tight -translate-y-1/2">
           Live Local Discovery,<br />
           like<span className="font-playfair italic font-extrabold"> never before</span>
-        </h1>
+        </h2>
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link href="#how-it-works" className="h-[48px] px-6 py-3 bg-[#2970FF] mobile:text-xl text-base leading-6 text-white font-semibold rounded-xl hover:bg-[#1E5AE8] transition-colors duration-200 whitespace-nowrap">

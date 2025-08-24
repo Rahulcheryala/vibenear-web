@@ -56,7 +56,7 @@ export default function PrivacyPolicy() {
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
             {/* Document Header */}
             <div className="bg-[#102C66] text-white px-8 py-6">
-              <h1 className="text-3xl text-white font-bold">VibeNear - Terms and Conditions</h1>
+              <h2 className="text-3xl text-white font-bold">VibeNear - Terms and Conditions</h2>
             </div>
 
             {/* HTML Content */}

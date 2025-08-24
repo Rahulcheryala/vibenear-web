@@ -10,7 +10,7 @@ export default function WhyVibeNear() {
   return (
     <section id="why-vibe-near" className="sm:py-15 py-9 sm:px-25 px-5 bg-[#FEFCFC] min-h-screen">
       <div className='container tablet:space-y-16 space-y-9 mx-auto'>
-        <h2 className="tablet:text-5xl sm:text-4xl text-[32px] tablet:leading-16 sm:leading-12 leading 11 font-bold text-center text-[#102C66] font-jakarta">
+        <h2 className="tablet:text-5xl sm:max-tablet:text-4xl text-[32px] tablet:leading-16 mobile:leading-12 leading 11 font-bold text-center text-[#102C66] font-jakarta">
           <span className="font-playfair pr-3">
             Why
           </span>
@@ -63,7 +63,7 @@ export default function WhyVibeNear() {
                   <h3 className="tablet:text-[32px] sm:text-[28px] text-xl font-extrabold text-[#1B1E25] sm:leading-10 leading-6">Get Seen by Nearby Customers</h3>
                   <p className="tablet:text-lg sm:text-base text-sm font-semibold leading-7 text-[#4D5055] max-w-[80%]">80% of users explore within 2 km</p>
 
-                  <Image src={Highway} alt="Highway" className="sm:w-[195px] w-[60px] aspect-square absolute sm:left-1/2 sm:bottom-8 bottom-2.5 right-2.5" />
+                  <Image src={Highway} alt="Highway" className="sm:w-[195px] w-[60px] aspect-square absolute sm:left-1/2 sm:bottom-8 sm:-translate-x-1/2 bottom-2.5 right-2.5" />
                 </div>
 
                 {/* Right Section - Remaining Width */}

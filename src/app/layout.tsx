@@ -33,9 +33,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  applicationName: "VibeNear",
   title: "VibeNear - Live Local Discovery",
   description: "VibeNear is the ultimate live local discovery platform, helping you instantly find what's happening around you. Whether you're a resident, a new tenant, or a student, VibeNear is your go-to guide for a great night out.",
+  keywords: "local discovery, events near me, local cafes, community events, hidden gems, local businesses, student communities, campus events, local deals, trending places",
+  authors: [{ name: "VibeNear Team" }],
+  creator: "VibeNear",
+  publisher: "Vethuk Technologies Private Limited",
+  applicationName: "VibeNear",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
