@@ -80,8 +80,8 @@ export default function Footer() {
               All Rights Reserved
             </div>
             <div className="flex mobile:flex-row flex-col gap-6 mobile:items-center">
-              <Link href="#" className="text-white tablet:text-base text-sm font-normal leading-5">Terms of Use</Link>
-              <Link href="#" className="text-white tablet:text-base text-sm font-normal leading-5">Privacy Policy</Link>
+              <Link href="/terms_conditions" className="text-white tablet:text-base text-sm font-normal leading-5">Terms of Use</Link>
+              <Link href="/privacy_policy" className="text-white tablet:text-base text-sm font-normal leading-5">Privacy Policy</Link>
               <Link href="#" className="text-white tablet:text-base text-sm font-normal leading-5">Cookie Policy</Link>
             </div>
           </div>

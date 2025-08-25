@@ -3,14 +3,14 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
-export default function PrivacyPolicy() {
+export default function TermsConditions() {
   const [htmlContent, setHtmlContent] = useState<string>('')
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const loadHtmlContent = async () => {
       try {
-        const response = await fetch('/files/Privacy_Policy.html')
+        const response = await fetch('/files/Terms_Conditions.html')
         const html = await response.text()
         setHtmlContent(html)
       } catch (error) {
@@ -56,7 +56,7 @@ export default function PrivacyPolicy() {
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
             {/* Document Header */}
             <div className="bg-[#102C66] text-white px-8 py-6">
-              <h2 className="privacy-policy-heading text-3xl text-white font-bold">VibeNear - Privacy Policy</h2>
+              <h2 className="text-3xl text-white font-bold">VibeNear - Terms and Conditions</h2>
             </div>
 
             {/* HTML Content */}
