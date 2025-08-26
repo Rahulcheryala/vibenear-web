@@ -51,9 +51,9 @@ export default function Home() {
         <section className="mobile:snap-start"><DiscoverExperiences /></section>
         <section className="mobile:snap-center min-h-fit"><HowItWorks /></section>
         <section className="mobile:snap-start min-h-screen"><WhyVibeNear /></section>
-        <section className="mobile:snap-start min-h-screen"><BusinessPromo /></section>
-        <section className="mobile:snap-start min-h-screen"><CampusPromo /></section>
-        <section className="mobile:snap-start min-h-screen"><FAQ /></section>
+        <section className="mobile:snap-start"><BusinessPromo /></section>
+        <section className="mobile:snap-start"><CampusPromo /></section>
+        <section className="snap-center tablet:snap-start"><FAQ /></section>
         <section className="mobile:snap-start min-h-screen"><AppShowcase /></section>
         <section className="mobile:snap-start min-h-screen"><Contact /></section>
         <section className="mobile:snap-end"><Footer /></section>

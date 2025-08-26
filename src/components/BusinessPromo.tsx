@@ -22,7 +22,7 @@ export default function BusinessPromo() {
   ]
 
   return (
-    <section id="for-businesses" className="bg-[#FEFCFC] min-h-screen flex xl:flex-row flex-col justify-between gap-x-12 mobile:gap-y-9 gap-y-6 tablet:pl-[120px] mobile:max-sm:p-10 sm:p-[60px] py-9 px-5">
+    <section id="for-businesses" className="bg-[#FEFCFC] min-h-screen xl:max-h-screen flex xl:flex-row flex-col justify-between gap-x-12 mobile:gap-y-9 gap-y-6 tablet:pl-[120px] mobile:max-sm:p-10 sm:p-[60px] py-9 px-5">
       <div className="flex justify-between xl:items-center items-start">
         {/* Left Section */}
         <div className="xl:min-h-[596px] xl:min-w-[546px] h-fit w-fit flex flex-col tablet:gap-y-12 mobile:gap-y-6 gap-y-5">
@@ -63,7 +63,7 @@ export default function BusinessPromo() {
         </div> */}
 
       {/* Right Section - Animation */}
-      <div className="flex-1 min-h-full flex items-center justify-center p-0 tablet:max-xl:p-10 mobile:max-tablet-xl:p-5 overflow-x-auto overflow-y-hidden scrollbar-hide tablet:overflow-visible">
+      <div className="flex-1 flex min-h-full items-center justify-center p-0 tablet:max-xl:p-10 mobile:max-tablet-xl:p-5 overflow-x-auto overflow-y-hidden scrollbar-hide tablet:overflow-visible">
         <Lottie
           animationData={outletAnimation}
           loop={true}

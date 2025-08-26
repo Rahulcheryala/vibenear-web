@@ -57,7 +57,7 @@ export default function FAQ() {
   }, [])
 
   return (
-    <section id="faqs" className="bg-white min-h-screen tablet:p-[100px] sm:p-[60px] px-5 py-9 grid place-content-center mobile:gap-y-12 gap-y-9">
+    <section id="faqs" className="bg-white tablet:min-h-screen min-h-fit tablet:p-[100px] sm:py-0 sm:px-[60px] px-5 py-9 grid place-content-center mobile:gap-y-12 gap-y-9">
       {/* Main heading */}
       <div className="text-center">
         <h2 className="tablet:text-5xl text-4xl text-[32px] font-bold leading-tight text-[#0C214C]">
