@@ -3,6 +3,7 @@ import type { Viewport } from 'next'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Plus_Jakarta_Sans, Playfair_Display, Reddit_Sans } from "next/font/google";
 import "./globals.css";
+import ToastProvider from "@/components/ToastProvider";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -69,6 +70,7 @@ export default function RootLayout({
       <body className={`${plusJakarta.variable} ${playfairDisplay.variable} ${redditSans.variable} antialiased`}>
         {children}
         <SpeedInsights />
+        <ToastProvider />
       </body>
     </html>
   );
