@@ -272,6 +272,96 @@ button {
   padding: 0;
 }
 
+/* Safety Standards Content Styling */
+.safety-standards-content {
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Inter,
+    Helvetica,
+    Arial,
+    sans-serif;
+  line-height: 1.6;
+  color: #1a1a1a;
+}
+
+.safety-standards-content h1 {
+  font-size: clamp(24px, 3.5vw, 34px);
+  line-height: 1.2;
+  margin: 0 0 12px 0;
+  color: #1a1a1a;
+}
+
+.safety-standards-content h2 {
+  margin-top: 28px;
+  color: #2970ff;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.safety-standards-content p,
+.safety-standards-content li {
+  font-size: 16px;
+  color: #1a1a1a;
+  margin: 0.5em 0;
+}
+
+.safety-standards-content .muted {
+  color: #5f6b7a;
+}
+
+.safety-standards-content .badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eaf1ff;
+  color: #1745a1;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.safety-standards-content .card {
+  background: #f7f9fc;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #e6ecf5;
+  margin-top: 22px;
+}
+
+.safety-standards-content ul {
+  padding-left: 20px;
+  margin: 0.5em 0;
+}
+
+.safety-standards-content li {
+  margin: 0.25em 0;
+}
+
+.safety-standards-content code {
+  background: #f2f4f7;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family: monospace;
+}
+
+.safety-standards-content .footer {
+  margin-top: 36px;
+  border-top: 1px solid #e6ecf5;
+  padding-top: 16px;
+  font-size: 14px;
+  color: #5f6b7a;
+}
+
+.safety-standards-content a {
+  color: #2970ff;
+  text-decoration: none;
+}
+
 /* Phone Input Styling - Hide increment/decrement arrows */
 .phone-input::-webkit-outer-spin-button,
 .phone-input::-webkit-inner-spin-button {
