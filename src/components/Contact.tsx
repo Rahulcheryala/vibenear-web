@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { z } from 'zod'
+import toast from 'react-hot-toast'
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, 'Please enter at least 2 characters'),
@@ -44,7 +45,7 @@ export default function Contact() {
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const parsed = contactSchema.safeParse(formData)
     if (!parsed.success) {
@@ -56,10 +57,60 @@ export default function Contact() {
       setErrors(fieldErrors)
       return
     }
+
     setIsSubmitting(true)
+
     try {
-      console.log('Form submitted:', parsed.data)
-      // TODO: send to API here
+      // API call to Next.js API route
+      const response = await fetch('/api/join-waitlist/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(parsed.data),
+      })
+
+      if (response.ok) {
+        toast.success('Successfully joined the waitlist! \n We\'ll notify you when VibeNear goes live.')
+
+        // Clear form on success
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          message: ''
+        })
+        setErrors({})
+      } else {
+        const errorData = await response.json().catch(() => ({}))
+        console.log("Error data:", errorData);
+
+        // Handle Django validation errors (field-specific errors)
+        if (errorData.phone || errorData.name || errorData.email || errorData.message) {
+          // Set field-specific errors
+          const fieldErrors: ContactFormErrors = {}
+          if (errorData.phone) fieldErrors.phone = errorData.phone[0] || 'Invalid phone number'
+          if (errorData.name) fieldErrors.name = errorData.name[0] || 'Invalid name'
+          if (errorData.email) fieldErrors.email = errorData.email[0] || 'Invalid email'
+          if (errorData.message) fieldErrors.message = errorData.message[0] || 'Invalid message'
+
+          setErrors(fieldErrors)
+
+          // Show appropriate message based on error type
+          if (errorData.phone && errorData.phone[0]?.includes('already exists')) {
+            toast.error('We understand your excitement! 🎉 You have already joined the waitlist. We\'ll notify you as soon as VibeNear goes live in your area!')
+          } else {
+            toast.error('Please fix the errors in the form')
+          }
+        } else {
+          // Handle general error message
+          const errorMessage = errorData.message || 'Failed to join waitlist. Please try again.'
+          toast.error(errorMessage)
+        }
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      toast.error('Network error. Please check your connection and try again.')
     } finally {
       setIsSubmitting(false)
     }

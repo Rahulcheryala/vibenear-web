@@ -7,10 +7,12 @@ A modern website built with Next.js 15 and Tailwind CSS v4 for VibeNear.
 This project was created using the latest Next.js with Tailwind CSS v4 integration.
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm or yarn
 
 ### Installation
+
 ```bash
 # Install dependencies
 npm install
@@ -44,6 +46,9 @@ my-website/
 - **TypeScript** for type safety
 - **ESLint** for code quality
 - **Turbopack** for fast development builds
+- **Toast notifications** for user feedback
+- **Form validation** with Zod schema
+- **API integration** with Django backend
 
 ## Converting Figma to Components
 
@@ -52,17 +57,22 @@ my-website/
 3. Import and use components in pages
 
 ### Example Component Structure
+
 ```tsx
 // src/components/Hero.tsx
 export default function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-900">Welcome to VibeNear</h1>
-        <p className="mt-4 text-lg text-gray-600">Built with Next.js + Tailwind</p>
+        <h1 className="text-4xl font-bold text-gray-900">
+          Welcome to VibeNear
+        </h1>
+        <p className="mt-4 text-lg text-gray-600">
+          Built with Next.js + Tailwind
+        </p>
       </div>
     </section>
-  )
+  );
 }
 ```
 
@@ -76,6 +86,7 @@ export default function Hero() {
 ## Tailwind CSS v4
 
 This project uses Tailwind CSS v4 which has a new syntax:
+
 - Uses `@import "tailwindcss"` instead of `@tailwind` directives
 - Supports CSS custom properties for theming
 - Improved performance and smaller bundle sizes
