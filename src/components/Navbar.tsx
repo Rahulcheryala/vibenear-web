@@ -132,7 +132,16 @@ export default function Navbar() {
                       {/* Mobile CTA in dropdown */}
                       <li className="sm:hidden border-t border-gray-200 mt-2 pt-2 px-6">
                         <button
-                          onClick={() => setNavbarOpen(false)}
+                          onClick={() => {
+                            setNavbarOpen(false)
+                            // Scroll to join-waitlist section and update URL
+                            const element = document.getElementById('join-waitlist')
+                            if (element) {
+                              element.scrollIntoView({ behavior: 'smooth' })
+                              // Update URL without page reload
+                              window.history.pushState({}, '', '#join-waitlist')
+                            }
+                          }}
                           className="w-full h-[48px] bg-[#1E5AE8] text-white font-semibold rounded-lg hover:bg-[#1A4FD1] transition-colors duration-200"
                           tabIndex={dropdownTabIndex}
                         >
