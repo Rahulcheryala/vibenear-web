@@ -51,7 +51,7 @@ export default function ContactHelp() {
             Still need help?
           </div>
           <div className="text-[#1B1E25] tablet:text-[28px] mobile:text-2xl text-xl leading-8 font-semibold">
-            If you couldn't find your answer, we're here for you. Reach out anytime:
+            If you couldn&apos;t find your answer, we&apos;re here for you. Reach out anytime:
           </div>
         </div>
 

@@ -85,6 +85,7 @@ export default function DeleteMyAccountPage() {
         throw new Error('Failed to submit request')
       }
     } catch (error) {
+      console.error('Error submitting deletion request:', error)
       toast.error('Failed to submit deletion request. Please try again.')
     } finally {
       setIsSubmitting(false)
@@ -118,7 +119,7 @@ export default function DeleteMyAccountPage() {
           <div className="text-center space-y-3">
             <h3 className="text-[32px] font-bold text-[#808286]">Request submitted</h3>
             <div className="text-[#B3B4B6] text-2xl leading-8 font-semibold max-w-[480px] mx-auto">
-              Your data deletion request is in progress. We'll notify you in the app within 2-3 days once it's completed
+              Your data deletion request is in progress. We&apos;ll notify you in the app within 2-3 days once it&apos;s completed
             </div>
           </div>
         </div>

@@ -20,7 +20,7 @@ export default function FeatureSuggestion() {
         <div className="max-w-[600px] flex flex-col items-start justify-start gap-3">
           <p className="w-full tablet:text-5xl mobile:text-4xl text-[28px] tablet:leading-[60px] mobile:leading-[48px] leading-9 font-bold text-[#02060D] sm:text-left text-center">Suggest a New Feature</p>
           <div className="tablet:text-[28px] mobile:text-2xl text-xl leading-9 font-semibold text-[#1B1E25] sm:text-left text-center">
-            We're always building VibeNear with you. Share your ideas, and help us improve!
+            We&apos;re always building VibeNear with you. Share your ideas, and help us improve!
           </div>
         </div>
       </div>
