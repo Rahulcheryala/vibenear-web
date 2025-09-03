@@ -4,7 +4,14 @@ import Image from 'next/image'
 
 export default function ContactHelp() {
   const handleWhatsAppClick = () => {
-    const whatsappNumber = '9030656522'
+    const whatsappNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER
+
+    if (!whatsappNumber) {
+      console.error('WhatsApp number is not defined in environment variables')
+      // Fallback: show alert or redirect to contact page
+      alert('WhatsApp support is currently unavailable. Please use email support instead.')
+      return
+    }
 
     const message = encodeURIComponent(
       'Hi! I need help with VibeNear support. Could you please assist me?'
@@ -21,7 +28,9 @@ export default function ContactHelp() {
       }, 1000)
     } catch (error) {
       console.error('Error opening WhatsApp:', error)
-      window.open(`https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${message}`, '_blank')
+      // Fallback to web WhatsApp
+      const whatsappWebUrl = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${message}`
+      window.open(whatsappWebUrl, '_blank', 'noopener,noreferrer')
     }
   }
 
@@ -36,10 +45,11 @@ export default function ContactHelp() {
     const mailtoUrl = `mailto:${supportEmail}?subject=${subject}&body=${body}`
 
     try {
-      window.open(mailtoUrl, '_blank')
+      window.open(mailtoUrl, '_blank', 'noopener,noreferrer')
     } catch (error) {
       console.error('Error opening email client:', error)
-      window.open(`mailto:${supportEmail}`, '_blank')
+      // Fallback: just open basic mailto
+      window.open(`mailto:${supportEmail}`, '_blank', 'noopener,noreferrer')
     }
   }
 
