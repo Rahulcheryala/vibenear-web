@@ -2,11 +2,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import AnimatedBanner from './AnimatedBanner'
 
-export default function Footer() {
+export default function Footer({ animateBanner = true }: { animateBanner?: boolean }) {
   return (
     <footer className="relative z-10 overflow-hidden">
       {/* Animated Banner */}
-      <AnimatedBanner />
+      {animateBanner && <AnimatedBanner />}
 
       {/* Main Footer Content */}
       <div className="pt-[60px] pb-9 tablet:px-[100px] mobile:max-sm:p-10 sm:p-[60px] px-5 bg-[#0C214C] flex flex-col tablet:gap-y-12 gap-y-9">
@@ -45,6 +45,11 @@ export default function Footer() {
                   >
                     Careers
                   </a>
+                </li>
+                <li>
+                  <Link href="/support" className="text-white tablet:text-lg text-base font-semibold leading-5 hover:text-blue-200 transition-colors">
+                    Support
+                  </Link>
                 </li>
               </ul>
             </div>

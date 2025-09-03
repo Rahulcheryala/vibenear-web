@@ -37,7 +37,7 @@ const AppShowcase = dynamic(() => import('../components/AppShowcase'), {
   ssr: true
 })
 
-const Contact = dynamic(() => import('../components/Contact'), {
+const JoinWaitlist = dynamic(() => import('../components/JoinWaitlist'), {
   loading: () => <div className="h-screen bg-white animate-pulse" />,
   ssr: true
 })
@@ -48,14 +48,14 @@ export default function Home() {
       <div className="mobile:snap-y mobile:snap-proximity h-dvh overflow-y-auto overflow-x-hidden scroll-smooth">
         <section className="snap-start"><Navbar /></section>
         <Hero />
-        <section className="mobile:snap-start"><DiscoverExperiences /></section>
+        <section><DiscoverExperiences /></section>
         <section className="mobile:snap-center min-h-fit"><HowItWorks /></section>
         <section className="mobile:snap-start min-h-screen"><WhyVibeNear /></section>
         <section className="mobile:snap-start"><BusinessPromo /></section>
         <section className="mobile:snap-start"><CampusPromo /></section>
         <section className="snap-center tablet:snap-start"><FAQ /></section>
         <section className="mobile:snap-start min-h-screen"><AppShowcase /></section>
-        <section className="mobile:snap-start min-h-screen"><Contact /></section>
+        <section className="mobile:snap-start min-h-screen"><JoinWaitlist /></section>
         <section className="mobile:snap-end"><Footer /></section>
       </div>
 

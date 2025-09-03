@@ -8,7 +8,13 @@ interface FAQItem {
   answer: string
 }
 
-const faqData: FAQItem[] = [
+interface FAQProps {
+  title?: string
+  data?: FAQItem[]
+  type?: 'page' | 'section'
+}
+
+const defaultFaqData: FAQItem[] = [
   {
     id: 1,
     question: "Do I need to create an account to explore?",
@@ -36,7 +42,11 @@ const faqData: FAQItem[] = [
   }
 ]
 
-export default function FAQ() {
+export default function FAQ({
+  title = "Frequently Asked Questions",
+  data = defaultFaqData,
+  type = 'page'
+}: FAQProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [heights, setHeights] = useState<{ [key: number]: number }>({})
   const contentRefs = useRef<{ [key: number]: HTMLDivElement | null }>({})
@@ -48,27 +58,27 @@ export default function FAQ() {
   // Calculate and store heights for smooth animation
   useEffect(() => {
     const newHeights: { [key: number]: number } = {}
-    faqData.forEach((faq) => {
+    data.forEach((faq) => {
       if (contentRefs.current[faq.id]) {
         newHeights[faq.id] = contentRefs.current[faq.id]?.scrollHeight || 0
       }
     })
     setHeights(newHeights)
-  }, [])
+  }, [data])
 
   return (
-    <section id="faqs" className="bg-white tablet:min-h-screen min-h-fit tablet:p-[100px] sm:py-0 sm:px-[60px] px-5 py-9 grid place-content-center mobile:gap-y-12 gap-y-9">
+    <section id="faqs" className={`bg-white ${type === 'page' ? 'tablet:min-h-screen min-h-fit tablet:p-[100px] sm:max-tablet:py-0 sm:px-[60px] px-5 py-9 grid place-content-center mobile:gap-y-12 gap-y-9' : 'tablet:p-[100px] mobile:pb-0 sm:p-16 mobile:p-9 py-9 px-5 flex flex-col justify-start items-center mobile:gap-y-6 gap-y-9'}`}>
       {/* Main heading */}
       <div className="text-center">
-        <h2 className="tablet:text-5xl text-4xl text-[32px] font-bold leading-tight text-[#0C214C]">
-          Frequently Asked Questions
+        <h2 className={`tablet:text-5xl mobile:text-4xl ${type === 'page' ? 'text-[32px]' : 'text-[28px]'} font-bold leading-tight text-[#0C214C]`}>
+          {title}
         </h2>
       </div>
 
       {/* Accordion container */}
-      <div className="tablet:w-full tablet:max-w-[1000px] mobile:w-full bg-white pb-12 mobile:px-6 mobile:py-0 tablet:py-12">
+      <div className="tablet:w-full tablet:max-w-[1000px] mobile:w-full bg-white mobile:px-6 mobile:pb-12 tablet:pb-12">
         <div className="flex flex-col gap-y-3 mobile:gap-y-6">
-          {faqData.map((faq) => (
+          {data.map((faq) => (
             <div
               key={faq.id}
               className="rounded-2xl bg-white shadow-sm overflow-hidden transition-all duration-300 ease-in-out"
@@ -78,7 +88,7 @@ export default function FAQ() {
                 className="flex w-full items-center justify-between text-left tablet:p-6 p-4"
                 onClick={() => toggleFaq(faq.id)}
               >
-                <h3 className="tablet:text-lg text-base mobile:leading-7 leading-[22px]  font-semibold text-[#0C214C] pr-4">
+                <h3 className="tablet:text-2xl tablet:leading-7 text-lg mobile:leading-7 leading-[22px] font-semibold text-[#0C214C] pr-4">
                   {faq.question}
                 </h3>
                 <svg

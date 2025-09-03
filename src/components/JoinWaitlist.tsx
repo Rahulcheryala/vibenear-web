@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { z } from 'zod'
 import toast from 'react-hot-toast'
 
-const contactSchema = z.object({
+const waitlistSchema = z.object({
   name: z.string().trim().min(2, 'Please enter at least 2 characters'),
   phone: z
     .string()
@@ -20,23 +20,23 @@ const contactSchema = z.object({
   message: z.string().trim().min(1, 'Please add a short message')
 })
 
-type ContactFormData = z.infer<typeof contactSchema>
+type WaitlistFormData = z.infer<typeof waitlistSchema>
 
-type ContactFormErrors = Partial<Record<keyof ContactFormData, string>>
+type WaitlistFormErrors = Partial<Record<keyof WaitlistFormData, string>>
 
-export default function Contact() {
-  const [formData, setFormData] = useState<ContactFormData>({
+export default function JoinWaitlist() {
+  const [formData, setFormData] = useState<WaitlistFormData>({
     name: '',
     phone: '',
     email: '',
     message: ''
   })
-  const [errors, setErrors] = useState<ContactFormErrors>({})
+  const [errors, setErrors] = useState<WaitlistFormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const validateField = (name: keyof ContactFormData, value: string) => {
-    const partial: ContactFormData = { ...formData, [name]: value }
-    const result = contactSchema.safeParse(partial)
+  const validateField = (name: keyof WaitlistFormData, value: string) => {
+    const partial: WaitlistFormData = { ...formData, [name]: value }
+    const result = waitlistSchema.safeParse(partial)
     if (!result.success) {
       const issue = result.error.issues.find(i => i.path[0] === name)
       setErrors(prev => ({ ...prev, [name]: issue?.message }))
@@ -47,11 +47,11 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const parsed = contactSchema.safeParse(formData)
+    const parsed = waitlistSchema.safeParse(formData)
     if (!parsed.success) {
-      const fieldErrors: ContactFormErrors = {}
+      const fieldErrors: WaitlistFormErrors = {}
       for (const issue of parsed.error.issues) {
-        const key = issue.path[0] as keyof ContactFormData
+        const key = issue.path[0] as keyof WaitlistFormData
         fieldErrors[key] = issue.message
       }
       setErrors(fieldErrors)
@@ -88,7 +88,7 @@ export default function Contact() {
         // Handle Django validation errors (field-specific errors)
         if (errorData.phone || errorData.name || errorData.email || errorData.message) {
           // Set field-specific errors
-          const fieldErrors: ContactFormErrors = {}
+          const fieldErrors: WaitlistFormErrors = {}
           if (errorData.phone) fieldErrors.phone = errorData.phone[0] || 'Invalid phone number'
           if (errorData.name) fieldErrors.name = errorData.name[0] || 'Invalid name'
           if (errorData.email) fieldErrors.email = errorData.email[0] || 'Invalid email'
@@ -121,13 +121,13 @@ export default function Contact() {
   ) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
-    validateField(name as keyof ContactFormData, value)
+    validateField(name as keyof WaitlistFormData, value)
   }
 
   const inputBase =
     'w-full rounded-lg border p-5 text-base text-gray-900 focus:outline-none transition-colors duration-200 bg-white'
 
-  const borderFor = (key: keyof ContactFormData) =>
+  const borderFor = (key: keyof WaitlistFormData) =>
     errors[key] ? 'border-red-500 focus:border-red-600' : 'border-[#D9D9DA] focus:border-gray-300'
 
   return (

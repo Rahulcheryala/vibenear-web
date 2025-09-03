@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Navbar from '@/components/Navbar'
 import Image from 'next/image'
 import toast from 'react-hot-toast'
 import { z } from 'zod'
@@ -19,6 +18,7 @@ export default function DeleteMyAccountPage() {
   const [phoneError, setPhoneError] = useState('')
   const [selectedReasons, setSelectedReasons] = useState<string[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const reasons = [
     { id: 'bugs', label: 'Faced bugs', icon: '🛠️' },
@@ -80,6 +80,7 @@ export default function DeleteMyAccountPage() {
         setPhoneNumber('')
         setSelectedReasons([])
         setPhoneError('')
+        setIsSubmitted(true)
       } else {
         throw new Error('Failed to submit request')
       }
@@ -99,10 +100,34 @@ export default function DeleteMyAccountPage() {
 
   const inputBase = 'tablet:w-[602px] w-full rounded-lg border p-5 text-base text-gray-900 focus:outline-none transition-colors duration-200 bg-white'
 
+  // Show confirmation screen after successful submission
+  if (isSubmitted) {
+    return (
+      <div className="min-h-[calc(100vh-110px)] bg-white flex flex-col gap-12 items-center justify-center px-4 ">
+        <div>
+          <div className="w-full flex justify-center">
+            <Image
+              src="/images/sections/DeleteRequest.svg"
+              alt="Request Submitted"
+              className="w-[397.5px] h-[459px]"
+              width={397.5}
+              height={459}
+            />
+          </div>
+
+          <div className="text-center space-y-3">
+            <h3 className="text-[32px] font-bold text-[#808286]">Request submitted</h3>
+            <div className="text-[#B3B4B6] text-2xl leading-8 font-semibold max-w-[480px] mx-auto">
+              Your data deletion request is in progress. We'll notify you in the app within 2-3 days once it's completed
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-white flex flex-col justify-center">
-      <Navbar />
-
       <div className="flex-1 min-h-full tablet:pt-10 tablet:px-[60px] py-5 px-4 flex flex-col items-center justify-center">
         <div className="w-fit">
           <div className="tablet:space-y-12 space-y-8">
