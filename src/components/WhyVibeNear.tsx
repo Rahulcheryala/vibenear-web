@@ -8,7 +8,7 @@ import Rocket from '../../public/images/sections/Rocket.svg'
 
 export default function WhyVibeNear() {
   return (
-    <section id="why-vibe-near" className="sm:py-15 py-9 sm:px-25 px-5 bg-[#FEFCFC] min-h-screen">
+    <section id="why-vibe-near" className="sm:py-15 py-9 sm:px-25 px-5 bg-[#FEFCFC] min-h-screen flex items-end">
       <div className='container tablet:space-y-16 space-y-9 mx-auto'>
         <h2 className="tablet:text-5xl sm:max-tablet:text-4xl text-[32px] tablet:leading-16 mobile:leading-12 leading 11 font-bold text-center text-[#102C66] font-jakarta">
           <span className="font-playfair pr-3">

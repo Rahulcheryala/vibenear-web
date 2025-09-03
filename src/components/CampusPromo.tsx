@@ -31,8 +31,7 @@ export default function CampusPromo() {
 
       {/* Right Section - Text and CTA */}
       <div className="flex justify-between xl:items-center items-start">
-
-        <div className="xl:min-h-[596px] xl:min-w-[546px] h-fit w-fit flex flex-col tablet:gap-y-12 mobile:gap-y-6 gap-y-5">
+        <div className="xl:min-h-[596px] xl:min-w-[546px] h-fit w-fit flex flex-col justify-center tablet:gap-y-12 mobile:gap-y-6 gap-y-5">
           <div className='mobile:space-y-3'>
             <h2 className="tablet:text-5xl text-4xl text-[32px] font-bold text-[#102C66] font-jakarta text-center sm:text-left">
               For campus clubs

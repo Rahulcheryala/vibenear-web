@@ -25,7 +25,7 @@ export default function BusinessPromo() {
     <section id="for-businesses" className="bg-[#FEFCFC] min-h-screen xl:max-h-screen flex xl:flex-row flex-col justify-between gap-x-12 mobile:gap-y-9 gap-y-6 tablet:pl-[120px] mobile:max-sm:p-10 sm:p-[60px] py-9 px-5">
       <div className="flex justify-between xl:items-center items-start">
         {/* Left Section */}
-        <div className="xl:min-h-[596px] xl:min-w-[546px] h-fit w-fit flex flex-col tablet:gap-y-12 mobile:gap-y-6 gap-y-5">
+        <div className="xl:min-h-[596px] xl:min-w-[546px] h-fit w-fit flex flex-col justify-center tablet:gap-y-12 mobile:gap-y-6 gap-y-5">
           <div className='mobile:space-y-3 sm:m-0 mx-auto'>
             <h2 className="tablet:text-5xl text-4xl text-[32px] font-bold text-[#102C66] font-jakarta text-center sm:text-left">
               Running a local business?

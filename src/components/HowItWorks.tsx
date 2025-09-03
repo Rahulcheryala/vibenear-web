@@ -118,7 +118,7 @@ export default function HowItWorks() {
   ]
 
   return (
-    <section id="how-it-works" className="mobile:py-15 mobile:px-25 mobile:max-sm:px-7 mobile:max-sm:py-10 px-5 py-9 bg-[#FEFCFC] sm:min-h-screen h-fit">
+    <section id="how-it-works" className="mobile:py-15 mobile:px-25 mobile:max-sm:px-7 mobile:max-sm:py-10 px-5 py-9 bg-[#FEFCFC] sm:min-h-screen h-fit flex items-end">
       <div className="container sm:space-y-12 mobile:space-y-8 space-y-5 mx-auto">
         <h2 className="tablet:text-5xl mobile:text-4xl text-[32px] tablet:leading-16 mobile:leading-12 leading-11 tablet:font-bold font-semibold text-center text-[#102C66] font-jakarta">
           How VibeNear

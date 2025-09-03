@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export default function Hero() {
   return (
-    <section className="relative mobile:min-h-[calc(100dvh-110px)] min-h-[calc(100dvh-80px)] flex justify-center pt-[calc((100dvh-220px-18px)/2)] transition-all duration-300 ease-in-out bg-[#FAFAFA] overflow-hidden">
+    <section className="relative min-h-svh flex justify-center pt-[calc((100dvh-18px)/2)] transition-all duration-300 ease-in-out bg-[#FAFAFA] overflow-hidden">
       {/* Lottie Animation - Layered */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
         {/* Middle - responsive width, bottom-centered, preserve aspect */}
@@ -67,7 +67,7 @@ export default function Hero() {
         </h2>
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Link href="#how-it-works" className="h-[48px] px-6 py-3 bg-[#2970FF] mobile:text-xl text-base leading-6 text-white font-semibold rounded-xl hover:bg-[#1E5AE8] transition-colors duration-200 whitespace-nowrap">
+          <Link href="#how-it-works" className="h-[48px] px-6 py-3 bg-[#2970FF] mobile:text-xl text-base leading-6 text-white font-semibold rounded-xl hover:bg-[#1E5AE8] transition-all duration-200 whitespace-nowrap focus:outline-none focus-visible:scale-105">
             Start Exploring
           </Link>
         </div>
